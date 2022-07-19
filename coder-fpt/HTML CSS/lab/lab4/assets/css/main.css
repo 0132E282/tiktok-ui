@@ -1,0 +1,30 @@
+body{
+    margin-left: 30%;
+   
+}
+#main{
+  letter-spacing: 2px;
+  word-spacing: 1px;
+  font-size: 20px;
+  font-variant: small-caps;
+}
+h3{
+ font-size: 40px;
+ color: white;
+ text-shadow: 0 0  1px red;
+}
+.doan1{
+    color: red;
+}
+.doan2{
+    color: blue;
+}
+.doan3{
+    color:green;
+}
+b{
+    color: red;
+}
+.margin-t30{
+    margin-top: 30px;
+}

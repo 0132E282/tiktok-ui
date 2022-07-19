@@ -1,0 +1,41 @@
+form { 
+    width: 600px; 
+    margin:100px auto; 
+    border: 1px solid darkslategrey;
+    box-shadow: 2px 2px 1px darkcyan;
+    border-radius: 5px;
+    font-size: 1.2em;
+}
+label { width: 120px; display: inline-block;}
+p, h2 { margin-left: 15px;}    
+input[id], select { 
+    padding: 8px; 
+    width: 420px; 
+    background-color: salmon; 
+    border: none;
+}
+button { 
+    width: 140px; 
+    height: 40px; 
+    border: none; 
+    background-color: darkgoldenrod;
+}
+button:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+.error {
+    text-align:  center;
+    font-size: 16px;
+    color: red;
+    font-weight: 700;
+    display: none;
+}
+#vc{
+    display: none;
+}
+.error__radio{
+    margin-left: 23%;
+    color: red;
+    display: none;
+}

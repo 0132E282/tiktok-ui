@@ -1,0 +1,19 @@
+table{
+    min-width: 782px;
+    border-collapse: collapse;
+    text-align: center;
+    border: 1px solid #00ff00;
+    height: 300px;
+}
+tr:first-child{
+    background-color: aquamarine;
+}
+tr:nth-child(2){
+    background-color: burlywood;
+}
+tr:nth-child(3) td:nth-child(2), tr:nth-child(3) td:nth-child(5){
+    color: red;
+}
+td:nth-child(2n+1){
+    width: 80px;
+}

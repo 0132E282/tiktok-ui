@@ -1,0 +1,27 @@
+:root{
+    /* sâu nầy thây đôi 1 value properties có thể thây đôi nguyên page không cần click từng phần tử để thây đổi */
+    /* color */
+    --primary-color:#626a67;
+    --while-color:#fff;
+    --black-color:#000;
+    /*size */
+    --text-content: 16px;
+    --text-heading: 21px;
+    --text-title: 32px;
+}
+.btn{
+    border: none;
+    color: var(--black-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+/* loại bỏ các value properties không cần thiết */
+a{
+    text-decoration: none;
+}
+ul{
+    margin: 0;
+    list-style: none;
+}

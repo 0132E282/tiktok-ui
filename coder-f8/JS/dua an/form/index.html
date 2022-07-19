@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <div class="header">
+            <h3> thanh viên đăng ký </h3>
+            <p> hệ thống đăng ký học tập coder  </p>
+            <span class="header__text"> </span>
+        </div>
+        <form action="" method="" class="from" id="form-1">
+            <div class="from--ground " >
+                <label for="fullName">nhập họ và tên</label>
+                <input type="text" id="fullName" name="fullName" placeholder="DV : Nguyễn Hoàng Phúc">
+                <span class="form--ground__error"> </span>
+            </div>
+            <div class="from--ground "id="form-2">
+                <label for="email">nhập email</label>
+                <input type="email" id="email" name="email" placeholder="DV : nguyenhoangphuc201122@gamil.com">
+                <span class="form--ground__error"> </span>
+            </div>
+            <div class="from--ground " >
+                <label for="password">nhập password</label>
+                <input type="password" id="password" name="password" >
+                <span class="form--ground__error"> </span>
+            </div>
+            <div class="from--ground " >
+                <label for="retypePassword">nhập lại password</label>
+                <input type="password" id="retypePassword" name="retypePassword" >
+                <span class="form--ground__error"> </span>
+            </div>
+            <div class="from--ground " >
+                <label for="province">tỉnh/tp</label>
+                <select id="province" name="province" >
+                    <option value="">chọn tỉnh thành phố</option>
+                    <option value="1">hà nội</option>
+                    <option value="2">hồ chí minh</option>
+                </select>
+                <span class="form--ground__error"> </span>
+            </div>
+            
+            <!-- <div class="from--ground " >
+                <label for="gender">giới tính </label>
+               <div>
+                    <input type="radio" class="" value="male" name="gender"  >
+                    nam
+               </div>
+               <div>
+                   <input type="radio" class="" value="female" name="gender" >
+                   nữ
+               </div>
+                <span class="form--ground__error"> </span>
+            </div> -->
+            <div class="from--ground " >
+                <label for="gender">giới tính </label>
+               <div>
+                    <input type="checkbox" value="nam" class="" name="gender"  >
+                    nam
+               </div>
+               <div>
+                   <input type="checkbox" value="nu" class="" name="gender" >
+                   nữ
+               </div>
+                <span class="form--ground__error"> </span>
+            </div>
+            <div class="from--ground " >
+                <label for="file">nhập lại password</label>
+                <input type="file" id="retypePassword" name="retypePassword" >
+                <span class="form--ground__error"> </span>
+            </div>
+            <button>đăng ký</button>
+        </form>
+    </div>
+    
+    <script src="./assets/js/validator.js"> </script>
+    <script>
+        validator({
+            form : '#form-1',
+            formGroupSelector : '.from--ground ',
+            errorSelector : '.form--ground__error',
+            rules : [
+                validator.isRequired("#fullName",'bạn chưa nhập họ tên'),
+                validator.isEmail('#email'),
+                validator.isRequired("#password",'bạn chưa nhập password'),
+                validator.isRequired("#retypePassword",'bạn chưa nhập xát nhận mật khẩu'),
+                validator.isRequired("#province",'chưa chọn tỉnh/tp'),
+                validator.isMinLength('#password',6),
+               
+                validator.isConfirmValue('#retypePassword',function(){
+                    return document.querySelector('#form-1 #password').value
+                },`mật khẩu nhập lại không chính sát`),
+                 validator.isRequired('input[name="gender"]','bạn chưa checkbox')
+            ],
+            onSubmit: function (data) {
+                console.log(data)
+            }
+        });
+
+    </script>
+</body>
+</html>

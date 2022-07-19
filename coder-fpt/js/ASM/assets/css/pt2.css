@@ -1,0 +1,113 @@
+.pt2{
+    background-color: brown;
+    border-radius: 4px;
+    padding-bottom: 20px;
+    margin-right: 50%;
+    transform: translateX(50%);
+    display: none;
+}
+.pt2__header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pt2__heading{
+    font-size: 20px;
+    padding: 10px 0;
+    color: #ffff;
+}
+.pt2__heading-title{
+    display: inline-block;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.pt2__header-some{
+    font-size: 1.6rem;
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    padding: 5px 0 10px 0;
+    border-bottom: 2px solid #fff;
+}
+.pt2__container--form-title{
+    padding-bottom: 20px ;
+}
+.pt2__header-some-title{
+    display:inline-block;
+}
+.pt2__container{
+    padding: 10px;
+}
+.pt2__container--input{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 10px 0;
+    text-align: center;
+}
+.pt2__container--input-title{
+    margin-right:10px ;
+    font-size: 1.6rem;
+    color: #fff;
+}
+.pt2__container--input input{
+    outline: none;
+    border-radius: 3px;
+    border: none;
+    padding: 5px;
+}
+
+.pt2__container--footer{
+    font-size: 1.4rem;
+    color: yellow;
+    text-align: center;
+    width: 100%;
+}
+.pt2__container--button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:10px 0 15px 0 ;
+}
+.button--answers.btn{
+   background-color: rgb(255, 255, 255);
+   border: 1px solid #0000;
+    color: rgb(0, 0, 0);
+    font-size: 1.7rem;
+    margin-right: 40px;
+   
+}
+.button--answers:hover{
+    opacity: 0.9;
+}
+.button--random.btn{
+    border: 2px solid rgb(82, 67, 67);
+    font-size: 1.7rem;
+}
+.button--random:hover{
+    opacity: 0.9;
+}
+.button--not:disabled{
+    background-color: rgb(182, 178, 176);
+    cursor: no-drop;
+    opacity: 0.9;
+}
+.pt2__container--show{
+    width: 400px;
+    height: 100px;
+    border: 1px solid #ffff;
+    margin: auto;
+    border-radius: 3px;
+}
+.pt2__container--show-heading{
+    font-size: 1.6rem;
+    color: #fff;
+    padding:10px 10px 0;
+}
+.pt2__container--show-result{
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 1.4rem;
+}

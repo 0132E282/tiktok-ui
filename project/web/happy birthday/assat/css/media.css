@@ -1,0 +1,42 @@
+@media screen and (max-width:739px)  {
+    div#mani {
+        padding-top: 187.5%;
+        width: 413px;
+    }
+    #mani .nav{
+        transform: translateX(28px);
+    }
+    #mani .nav .titlte {
+        font-size: 40px;
+        margin-top: 65px;
+        margin-right: 138px;
+    }
+    #mani .nav .date-of-birth {
+        font-size: 32px;
+    }    
+    #mani .nav .name {
+        font-size: 22px;
+        margin-right: 68px;
+    }
+    #mani .top img {
+        width: 98px;
+        position: relative;
+        margin-right: 4px;
+        margin-top: 135px;
+    }
+    
+     #mani .conter {
+        transform: translateY(-22px );
+    }
+    #mani .happy-birthday{
+        bottom: 60px;
+        right: 35px;
+    }
+    #mani .happy-birthday img {
+        width: 180px;
+    }
+    audio{
+        top:92.3%;
+        width:90%;
+    }
+}

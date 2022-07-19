@@ -1,0 +1,17 @@
+:root{
+    --heading--color: #202325;
+    --text--color:#797b7c;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5555%;
+    font-family: 'roboto',sans-serif;
+    line-height: 1.6em;
+}
+.width-5c{
+    width: 20%;
+}

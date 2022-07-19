@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="./assets/css/stysle.css">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./assets/js/bai3.js"></script>
+    <div class="pt">
+        <div class="pt__heading">
+          <h3>giải phương trinh căng bật 2 </h3>
+        </div>
+        <div class="pt__container">
+            <script>
+                var heading,x1,x2,x0;
+                document.write(`<div>`+a+`<div>x</div> <sup>2</sup> +`+b+`<div>x</div> -`+c+`=0 </div>`);
+                if(delta < 0){
+                    heading = 'phương trinh vô nghiệm';
+                    document.write('<h3>  '+heading+' </h3>')
+                }else if(delta == 0){
+                    x0 = -b / (2*a);
+                    heading= 'phương trinh có nghiệm kep';
+                    ocument.write('<h1>x0 :'+x0+' </h1>');
+                    document.write('<h3>  '+heading+' </h3>')
+                }else{
+                    heading='phương trinh co 2 nghiem phan biet';
+                    x1 = (-b + Math.sqrt(delta))/(2*a);
+                    x2 =  (-b - Math.sqrt(delta))/(2*a);
+                    document.write('<h3>  '+heading+' </h3>')
+                    document.write('<h4>x1 :'+x1+' </h4>');
+                    document.write('<h4>x2 : '+x2+'</h4>');
+                };
+            </script>
+        </div>
+    </div>
+  
+</body>
+</html>

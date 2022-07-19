@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\..\\.."
+		}
+	],
+	"settings": {
+		"java.project.sourcePaths": [
+			"coder-fpt/JAVA/LAB/26-ps21346-nguyenhoangphuc-lab7/src/pkg26/ps21346/nguyenhoangphuc/lab7"
+		]
+	}
+}

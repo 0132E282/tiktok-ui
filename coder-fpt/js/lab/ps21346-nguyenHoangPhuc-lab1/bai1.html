@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bài 1 lab 1</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+    <script>
+    var name = '<span>: nguyen hoang phuc</span>';
+    var id = '<span>: ps21346 </span>';
+    var date = ': 20/1/2003';    
+    </script>
+    <h1 class="heading">thông tin sinh viên</h1>
+    <div class="container">
+        <div class="container__name">
+            <span> họ tên </span>  <script> document.write( name)</script>
+        </div>
+        <div class="container__ms">
+            <span> mã số sv </span> <script>document.write(id)</script>
+        </div>
+        <div class="container__date">
+            <span> ngày sinh </span> <span id="date"> </span>
+        </div>
+        <script>
+            document.getElementById("date").innerHTML=date;
+        </script>
+    </div>
+</body>
+</html>

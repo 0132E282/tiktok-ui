@@ -1,0 +1,143 @@
+html{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+#mani{
+    background: url(./img/373871530031201.webp) center / cover no-repeat;
+    padding-top: 51.5%;
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+   position: fixed;
+}
+#mani .nav{
+        position: absolute;
+        line-height: 2.2;
+        top: -11%;
+        right: -8px;
+        left: 0;
+        transform: translateX(408px);
+        text-align: center;
+}
+#mani .nav .titlte {
+    font-size: 140px;
+    margin-top: 60px;
+    font-style: oblique;
+    font-family: fangsong;
+    text-transform: capitalize;
+    text-shadow: 0 0 5px;
+}
+#mani .nav .name{
+    font-size: 100px;
+    font-style: oblique;
+    text-transform: initial;
+    text-shadow: 0 0 3px;
+}
+#mani .nav .date-of-birth{
+    font-size: 60px;
+}
+.from-title{
+    color: rgb(55, 197, 216);
+    text-shadow: 0 0 10 rgba(0, 0, 0, 0.5);
+    animation-name:color1;
+    animation-duration:3s;
+    animation-iteration-count: infinite;
+}
+#mani .top{
+    position: absolute;
+    width: 100%;
+    top: 20px;
+    display: flex;
+    justify-content: space-around;
+    transform: translateX(-136px);
+}
+#mani .top img{
+    width: 100px;
+    position: relative;
+    animation:  bongbay1 infinite 0.4 alternate;
+}
+.traitim{
+    margin-top: 39px;
+    height: 80px;
+    position: relative;
+    animation: traitim1  0.4s infinite  alternate;
+}
+#mani .bottom{
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    right: 20px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bottom .conter{
+    background: url(./img/nghichu.png) center/cover no-repeat;
+    width: 300px;
+    height: 300px;
+    transform: translateY(-89px);
+    position: relative;
+}
+.bottom .conter h3{
+    position: absolute;
+    top: 70px;
+    font-size: 26px;
+    line-height: 2.9;
+    text-shadow: 19px 0px 10px;
+}
+.bottom .tim2{
+    width: 100px;
+}
+.bottom .header{
+    margin-left: 100px;
+} 
+audio {
+    position: absolute;
+    top:93%;
+    width:100%;
+}
+ #mani .happy-birthday{
+    position: absolute;
+    bottom: 50px;
+    right: 99px;
+
+}
+#mani .happy-birthday img{
+    width:400px;
+}
+@keyframes color1{
+    0%{
+        color: #fcd787;
+    }
+    25%{
+        color:#f8d347;
+    }
+    50%{
+        color:#fe22fe;
+    }
+    75%{
+        color: #1446fb;
+    }
+    100% {
+        color: #fb3439;
+    }
+}
+@keyframes traitim1{
+    0%{
+        transform: scale3d(0);
+    }
+    25%{
+        transform: scale3d(1.5, 1.5, 1.5);
+    }
+    50%{
+        transform: scale3d(1.5, 1.5, 1.5);
+    }
+    75%{
+        transform: scale3d(1.5, 1.5, 1.5);
+    }
+    100%{
+        transform: scale3d(1.5, 1.5, 1.5);
+    }
+}

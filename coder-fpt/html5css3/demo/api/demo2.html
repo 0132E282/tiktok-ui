@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="x">sat dinh vi tri</div>
+   <button class="btn" onclick="getLocation()">click</button>
+  <button onclick="getLocation2()">getLocation2 </button>
+   <script>
+         const x = document.querySelector('.x')
+         function getLocation() {
+             if(navigator.geolocation){
+                 navigator.geolocation.getCurrentPosition(showPosition,showError);
+             }else{
+                 x.innerHTML = `trình duyệt không hổ trợi`;
+             }
+         }
+         function showPosition(position){
+             x.innerHTML = "vĩ độ " + position.coords.latitude +"<br/> kinh độ : " + position.coords.longitude;
+         }
+         function showError(error){
+             x.innerHTML = error.message
+         }
+         function getLocation2(){
+             console.log(getCurrentPosition)
+            localStorage.setItem('website','webbtn.com');
+           console.log(localStorage.getItem('website'))
+         }
+   </script>
+</body>
+</html>

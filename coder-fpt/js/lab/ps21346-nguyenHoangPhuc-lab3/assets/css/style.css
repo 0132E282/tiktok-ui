@@ -1,0 +1,101 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+#calculation{
+    width: 500px;
+    background-color: aqua;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 3px;
+    color:rgb(240, 10, 87);
+    font-size: 20px;
+    margin: auto;
+    margin-top: 20%;
+}
+.fibonacy{
+    background-color: aqua;
+    margin: auto;
+    padding: 10px 0;
+}
+.fibonacy > h3{
+    text-align: center;
+    font-size: 22px;
+    color: azure;
+    text-shadow: 2px 1px rgb(204, 20, 0);
+}
+.fibonacy-list{
+    display: flex;
+    justify-content: space-around;
+}
+.fibonacy-list-item{
+ list-style: none;
+ width: 50px ;
+ height: 50px;
+ border-radius: 50%;
+ background-color: burlywood;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.container{
+    width: 250px;
+    margin: auto;
+    border: 2px solid #292828;
+    padding: 10px;
+    border-radius: 3px;
+    height: 300px;
+}
+.container__show{
+    height: 40px;
+    border: 1px solid #ff0000;
+    display: flex;
+    justify-content: flex-end;
+    align-items:center;
+    padding: 10px;
+    border-radius: 3px;
+}
+.container__show div{
+    margin: 2px;
+}
+.container tr{
+    width: 100%;
+}
+.container table{
+    width: 100%;
+    height: 80%;
+    margin-top:10px ;
+}
+.container tr td{
+   width: 25%;
+  
+}
+button{
+    width: 100%;
+    cursor: pointer;
+    height: 100%;
+}
+.date{
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    height: 50px;
+    width: 400px;
+    background-color: aquamarine;
+    border-radius: 3px;
+    margin: auto;
+}
+.date__heading{
+    font-size: 15px;
+    color: aliceblue;
+    text-transform: capitalize;
+    margin-bottom:10px ;
+    text-shadow: 0 0 1px #ff0000;
+}
+.ngay{
+    margin: 0 10px;
+}
+.thang{
+    margin-right:10px ;
+}

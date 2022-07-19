@@ -1,0 +1,33 @@
+@media (max-width: 768px) {
+    main{
+        max-width: 910px;
+        padding: 0 10px;
+        margin: auto;
+        grid-template-columns: 100% ;
+        grid-auto-flow: auto;
+        grid-column-gap:20px ;
+    }
+    .col{
+        position: relative;
+    }
+    .background-icon{
+        height: 100% !important;
+        background-color: transparent;
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        transition: opacity ease-in 0.25s;
+    }
+    .content{
+        border-color:red ;
+        background-color: rgba(162, 164, 167, 0.288);
+        color: rgb(255, 255, 255);
+    }
+    .col:hover {
+        transform: scale(1);
+    }
+    .col:hover  .background-icon{
+        
+        opacity: 1;
+    }
+}

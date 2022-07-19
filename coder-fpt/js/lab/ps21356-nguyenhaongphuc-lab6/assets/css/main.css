@@ -1,0 +1,94 @@
+*{
+    box-sizing: border-box;
+}
+.bai2{
+    max-width: 100%;
+    position: relative;
+}
+.bai2__icon{
+    position: absolute;
+    width: 40px;
+    background-color: #ffffff;
+    top: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    height: 40px;
+}
+.icon-angle--right{
+ right: 18.8%;
+}
+.bai2__img {
+    max-width: 1200px;
+    overflow: hidden;
+}
+.bai2__img-banner{
+
+}
+.bai2__heading{
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 10px 0;
+}
+.background1{
+    background-image: url(../img/banner/anh-nen-hot-girl-full-hd-cho-may-tinh.jpg);
+    padding-top: 63%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 1200px;
+    animation:rightToLeft 0.5s linear;
+}
+.background2{
+    background-image: url(../img/banner/hinh-nen-gai-xinh-hd-1.jpg);
+    padding-top: 63%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 1200px;
+    animation:rightToLeft 0.5s linear;
+}
+.background3{
+    background-image: url(../img/banner/cham-soc-da-vao-mua-dong.jpg);
+    padding-top: 63%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 1200px;
+    animation:rightToLeft 0.5s linear;
+}
+.background4{
+    background-image: url(../img/banner/hinh-nen-girl-xinh-4k-cho-pc-05.jpg);
+    padding-top: 63%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 1200px;
+    animation:rightToLeft 0.5s linear;
+}
+.background5{
+    background-image: url(../img/banner/hinh-nen-girl-xinh-full-hd-cho-laptop-2.jpg);
+    padding-top: 63%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 1200px;
+    animation:rightToLeft 0.5s  linear;
+
+}
+.background6{
+    background-image: url(../img/banner/hinh-nen-hot-girl-cho-may-tinh-84.jpg);
+    padding-top: 63%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 1200px;
+    animation:rightToLeft 0.5s linear;
+}
+@keyframes rightToLeft{
+    from{
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to{
+        opacity: 1;
+        transform:translateX(0) ;
+    }
+}

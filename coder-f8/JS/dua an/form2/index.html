@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <title>Document</title>
+
+</head>
+<body>
+    <div id="main">
+        <div class="header">
+            <h3> thanh viên đăng ký </h3>
+            <p> hệ thống đăng ký học tập coder  </p>
+            <span class="header__text"> </span>
+        </div>
+        <form action="" method="" class="from" id="form-1">
+            <div class="from--ground " >
+                <label for="fullName">nhập họ và tên</label>
+                <input type="text" id="fullName" rules="required" name="fullName" placeholder="DV : Nguyễn Hoàng Phúc">
+                <span class="form--ground__error"> </span>
+            </div>
+            <div class="from--ground "id="form-2">
+                <label for="email">nhập email</label>
+                <input type="email" id="email" name="email"  rules="required|email" placeholder="DV : nguyenhoangphuc201122@gamil.com">
+                <span class="form--ground__error"> </span>
+            </div>
+            <div class="from--ground " >
+                <label for="password">nhập password</label>
+                <input type="password" id="password" rules="required|min:4"  name="password" >
+                <span class="form--ground__error"> </span>
+            </div>
+            <div class="from--ground " >
+                <label for="retypePassword">nhập lại password</label>
+                <input type="password" id="retypePassword" name="retypePassword" >
+                <span class="form--ground__error"> </span>
+            </div>
+            <button>đăng ký</button>
+        </form>
+    </div>
+    <script src="./assets/js/validator.js"></script>
+   <script>
+       var form = new  validator('#form-1');
+       form.onsubmit = function(formData){
+           console.log(formData)
+       }
+  </script>
+</body>
+</html>

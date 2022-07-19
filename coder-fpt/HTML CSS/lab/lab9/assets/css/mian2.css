@@ -1,0 +1,54 @@
+form{
+    max-width: 400px;
+    border: 1px solid #804040;
+    padding: 10px;
+    font-variant: small-caps;
+    text-transform: capitalize;
+    font-weight:bolder;
+}
+.input-text{
+    width: 100%;
+    height: 20px;
+}
+.form-heading{
+    font-size: 15px;
+   
+}
+.form-sex{
+    font-size: 15px;
+    margin-top: 10px;
+  
+}
+.form-sex-content{
+    font-size: 15px;
+}
+.file{
+    margin-top: 10px;
+}
+.file span{
+    font-size: 15px;
+    display: inline-block;
+}
+.file input{
+    margin-left: 10px;
+}
+.form-list{
+    margin-top: 10px;
+}
+.form-list-list{
+    width: 100%;
+    height: 20px;
+    font-size: 15px;
+}
+textarea{
+    resize: none;
+}
+.form-checkbox{
+  display: flex;
+  margin: 10px 0;
+}
+.form-checkbox label{
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,27 @@
+body{
+    text-align: center;
+    font-size: 20px;
+    line-height: 1.4;
+}
+#main{
+    
+}
+h3{
+ font-size: 40px;
+ margin: 0;
+}
+.doan1{
+    color: red;
+}
+.doan2{
+    color: blue;
+}
+.doan3{
+    color:green;
+}
+b{
+    color: red;
+}
+.margin-t30{
+    margin-top: 30px;
+}

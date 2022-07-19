@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/img/img/fontawesome-free-5.15.4-web copy/css/all.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="./assets/css/pt2.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- * header -->
+    <div class="header">
+        <div class="width grid">
+            <div class="row">
+                <div class="navbar">
+                    <div class="navbar__logo">
+                        <img src="./assets/img/logo/tải xuống.png" alt="">
+                    </div>
+                    <ul class="navbar-list">
+                        <il class="navbar__list-item " index="1" >bài tập 1</il>
+                        <il class="navbar__list-item " >bài tập 2</il>
+                        <il class="navbar__list-item " >bài tập 3</il>
+                        <il class="navbar__list-item " >bài tập 4</il>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end header -->
+    <div class="container">
+        <div class="grid width">
+            <div class="row">
+                <div class="container__banner">
+                    <img src="./assets/img/logo/xx18198154_10208600482868814_3469513_n.png,Mic_.4_CcyctRxZ.png.pagespeed.ic.CpSbend0Xr.webp" alt="">
+                    <div class="container__banner-content">
+                        chọn bài bạn muốn xem !!
+                    </div>
+                </div>
+                <div class="exercise ">
+                    <!-- bai 1 -->
+                    <div class="pt2 remove ">
+                        <div class="pt2__header">
+                            <div class="pt2__heading">
+                                <div class="pt2__heading-title">giải phương trình</div> ax <sup>2</sup> + bx +c =0
+                            </div>
+                            <div class="pt2__header-some">
+                                <div class="pt2__header-some-title"> số lần giải</div> <span id="slg">0</span>
+                            </div>
+                        </div>
+                        <div class="pt2__container">
+                            <div class="pt2__container--form-list">
+                                <div class="pt2__container--input">
+                                    <div class="pt2__container--input-title">
+                                        nhập a
+                                    </div>
+                                    <input type="text" id="a">
+                                </div>
+                                <div class="pt2__container--input">
+                                    <div class="pt2__container--input-title">
+                                        nhập b
+                                    </div>
+                                    <input type="text" id="b">
+                                </div>
+                                <div class="pt2__container--input">
+                                    <div class="pt2__container--input-title">
+                                        nhập c
+                                    </div>
+                                    <input type="text" id="c">
+                                </div>
+                                <div class="pt2__container--button">
+                                    <button class="button--answers btn  button--not " disabled id="answers" onclick="showSome()">bắt đầu giải</button>
+                                    <button class="button--random btn" onclick="randomSome() "> ngẫu nhiên</button>
+                                </div>
+                            </div>
+                            <div class="pt2__container--show" id="result">
+                                
+                            </div>
+                        </div>
+                        <div class="pt2__container--footer" id="date_show">
+                            
+                        </div>
+                    </div>
+                    <!-- bai 2 -->
+                    <div class="bai2 remove ">
+                        <div class="bai2__heading">
+                            bài 2 thây  ảnh
+                        </div>
+                        <div class="bai2__icon icon-angle--left" onclick="changeImgs('-')">
+                            <i class="fas fa-angle-left " style="user-select: auto;"></i>
+                        </div>
+                        <div class="bai2__img">
+                           
+                        </div>
+                        <div class="bai2__icon icon-angle--right  icon-angle--rigth-item"onclick="changeImgs('+')">
+                            <i class="fas fa-angle-right"  style="user-select: auto;"></i>
+                        </div>
+                    </div>
+                    <!-- bai 3 -->
+                    <div class="bai3  remove">
+                        <div class="bai3__filter">
+                            <select class="body--filter-list">
+                                <option class="body--filter-list-item" value="" >mức giá</option>
+                                <option class="body--filter-list-item" value="100-200">100-200</option>
+                                <option class="body--filter-list-item" value="200-400">200-400</option>
+                                <option class="body--filter-list-item" value="400-800">400-800</option>
+                                <option class="body--filter-list-item" value="800-1000">800-1000</option>
+                            </select>
+                            <select class="body--filter-list">
+                                <option class="body--filter-list-item" value="">sản phẩm</option>
+                                <option class="body--filter-list-item" value="iphone">iphone</option>
+                                <option class="body--filter-list-item" value="samsung">samsung</option>
+                                <option class="body--filter-list-item" value="realme">realme</option>
+                            </select> 
+                            <button class="body--filter-detele">huy bỏ</button>
+                            <div class="bai3__filter--error">
+                            </div>      
+                        </div>
+                        <div class="bai3__body">
+                            <div class="bai3__body--heading">
+                                bán hàng
+                           </div>
+                            <table class="bai3__body--filter--tablter" border="1px">
+                                <tr class="tablter__row tablter__row--heading">
+                                    <td class="tablter__row-col" colspan="2" >sản phẩm </td>
+                                    <td class="tablter__row-col">đơn giá </td>
+                                    <td class="tablter__row-col">số lượng </td>
+                                    <td class="tablter__row-col">thành tiền </td>
+                                </tr>
+                                <tr class="tablter__row" >
+                                    <td class="tablter__row-col"><input class="tablter__row-col__input-check-box"type="checkbox"> </td>
+                                    <td class="tablter__row-col table__col--name-product"name="iphone">iphone 6s </td>
+                                    <td class="tablter__row-col table__col-price">100 </td>
+                                    <td class="tablter__row-col"><input class="tablter__input-text" value="0" disabled type="text">
+                                    <div class="tablet__col--error"> </div> </td>
+                                    <td class="tablter__row-col table__col-tones" > 0 </td>
+                                </tr>
+                                <tr class="tablter__row" >
+                                    <td class="tablter__row-col"><input  class="tablter__row-col__input-check-box" type="checkbox"> </td>
+                                    <td class="tablter__row-col table__col--name-product"  name="iphone">iphone 12pro max </td>
+                                    <td class="tablter__row-col table__col-price">200 </td>
+                                    <td class="tablter__row-col"><input class="tablter__input-text" value="0" disabled type="text">
+                                    <div class="tablet__col--error"> </div> </td>
+                                    <td class="tablter__row-col table__col-tones" > 0 </td>
+                                </tr>
+                                <tr class="tablter__row" >
+                                    <td class="tablter__row-col"><input  class="tablter__row-col__input-check-box" type="checkbox"> </td>
+                                    <td class="tablter__row-col table__col--name-product"  name="samsung">samsung 7 lus </td>
+                                    <td class="tablter__row-col table__col-price">500 </td>
+                                    <td class="tablter__row-col"><input  class="tablter__input-text" value="0" disabled type="text">
+                                    <div class="tablet__col--error"> </div> </td>
+                                    <td class="tablter__row-col table__col-tones" > 0 </td>
+                                </tr>
+                                <tr class="tablter__row" >
+                                    <td class="tablter__row-col"><input  class="tablter__row-col__input-check-box" type="checkbox"> </td>
+                                    <td class="tablter__row-col table__col--name-product" name="samsung">samsung 7 a21 </td>
+                                    <td class="tablter__row-col table__col-price">500 </td>
+                                    <td class="tablter__row-col"><input class="tablter__input-text" value="0" disabled type="text">
+                                    <div class="tablet__col--error"> </div> </td>
+                                    <td class="tablter__row-col table__col-tones" > 0 </td>
+                                </tr>
+                                <tr class="tablter__row" >
+                                    <td class="tablter__row-col"><input  class="tablter__row-col__input-check-box" type="checkbox"> </td>
+                                    <td class="tablter__row-col table__col--name-product"  name="iphone">iphone 6s </td>
+                                    <td class="tablter__row-col table__col-price">500 </td>
+                                    <td class="tablter__row-col"> 
+                                        <input class="tablter__input-text" value="0" disabled type="text">
+                                    <div class="tablet__col--error "> </div> </td>
+                                    <td class="tablter__row-col table__col-tones" > 0 </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="bai3__receipt">
+                            <div class="receipt__heading">
+                               tổng hóa đơn:
+                            </div>
+                            <div class="receipt__heading-tones--money">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- bai 4 -->
+                    <div class="bai4 remove">
+                        <div class="bai4__heading">from đăng ký</div>
+                        <div class="bai4__body">
+                            <div class="bai4__body--input">
+                                <div  class="input__name">
+                                    <label class="input__name--item  input__name--tile-lastName">
+                                        <div class="input__name--tile  "> họ và tên lót </div>
+                                        <input class="input--text input--text-name-last" placeholder=" họ và tên " type="text">
+                                        <div class=" input__name--item-test input__name--item-test-lastName">
+                                          bạn nhập sai nhập lại!    
+                                        </div>
+                                    </label>
+                                    <label class="input__name--item  input__name--tile-filterName">
+                                        <div class="input__name--tile ">  tên </div>
+                                        <input class="input--text input--text-name-filter" placeholder=" tên" type="text">
+                                        <div class=" input__name--item-test input__name--item-test-filterName">
+                                            bạn chưa nhập tên    
+                                          </div>
+                                    </label>
+                                    <div class="input__name--sex">
+                                        <label  class="input__name--sex--item" for="">
+                                            
+                                            <div class="input__name--sex-title"> nam</div>
+                                            <input checked class="input__name--sex--item--radio" type="radio" name="sex">
+                                        </label>
+                                        <label  class="input__name--sex--item" for="">
+                                            <div class="input__name--sex-title"> nữ</div>
+                                            <input  class="input__name--sex--item--radio" type="radio" name="sex">
+                                        </label>
+                                    </div>
+                                </div>
+                                <label for="" class="input__name">
+                                    <div class="input__name--item">
+                                        <div class=" input__name--item-test input__name--item-test--id">
+                                            bạn chưa nhập tên    
+                                          </div>
+                                        <div class="input__name--tile"> mã sinh viên </div>
+                                        <input class="input--text input--text-id" placeholder=" mã sinh viên " type="text">
+                                    </div>
+                                </label>
+                                <label for="" class="input__name input__name-email ">
+                                    <div class="input__name--item">
+                                        <div class="input__name--tile"> gmail </div>
+                                        <input class="input--text input--text__type-email" placeholder="  @fpt.edu.vn " type="gmail">
+                                    </div>
+                                    <div class=" input__name--item-test input__name--item-test-gmail">
+                                        bạn chưa nhập tên    
+                                      </div>
+                                </label>
+                                <label for="" class="input__name">
+                                    <div class="input__name--tile"> quốc tịch</div>
+                                    <div class="input__text--nationality">
+                                        <div class="input__text--nationality--item">
+                                            <input type="text" value="Việt Nam" class="nationality--item--input">
+                                            <div class="nationality--item-icon">
+                                                <i class="fas fa-angle-down"></i>
+                                            </div> 
+                                            <ul class="input__nationality--list">
+                                                <li class="input__nationality--list--item"> 
+                                                    <div class="input__nationality--name"> Việt Nam</div> 
+                                                    <img class="input__nationality--list--item-img" src="./assets/img/logo/230px-Flag_of_North_Vietnam_(1955–1976).svg.png" alt="">
+                                                </li>
+                                                <li class="input__nationality--list--item"> 
+                                                    <div class="input__nationality--name">mỹ </div>
+                                                    <img class="input__nationality--list--item-img" src="./assets/img/logo/285px-Flag_of_the_United_States_(Pantone).svg.png" alt="">
+                                                </li>
+                                                <li class="input__nationality--list--item"> 
+                                                    <div class="input__nationality--name">trung quốc</div> 
+                                                    <img class="input__nationality--list--item-img" src="./assets/img/logo/220px-Flag_of_the_Customs_of_the_People's_Republic_of_China.svg.png" alt="">
+                                                </li>
+                                                <li class="input__nationality--list--item"> 
+                                                    <div class="input__nationality--name">hàn quốc</div> 
+                                                    <img class="input__nationality--list--item-img" src="./assets/img/logo/y-nghia-quoc-ky-han-quoc3.png" alt="">
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="input__text--nationality--logo">
+                                            <img  class="input__text--nationality--logo-img" src="./assets/img/logo/230px-Flag_of_North_Vietnam_(1955–1976).svg.png" alt="">
+                                        </div>
+                                    </div>
+                                   
+                                </label>
+                                <div class="input__interests">
+                                    <div class="input__interests--heading">sỡ thích của bạn </div>
+                                    <label  class="input__interests--item">
+                                        <div class="input__interests--item--heading">đá banh</div>
+                                        <input  class="input__interests--checkbox" type="checkbox">
+                                    </label>
+                                    <label  class="input__interests--item">
+                                        <div class="input__interests--item--heading">bống chuyền</div>
+                                        <input  class="input__interests--checkbox" type="checkbox">
+                                    </label>
+                                    <label  class="input__interests--item">
+                                        <div class="input__interests--item--heading">shopping</div>
+                                        <input  class="input__interests--checkbox" type="checkbox">
+                                    </label>
+                                    <label  class="input__interests--item">
+                                        <div class="input__interests--item--heading">hát</div>
+                                        <input  class="input__interests--checkbox" type="checkbox">
+                                    </label>
+                                    <label  class="input__interests--item">
+                                        <div class="input__interests--item--heading">ăn</div>
+                                        <input  class="input__interests--checkbox" type="checkbox">
+                                    </label>
+                                    <label  class="input__interests--item">
+                                        <div class="input__interests--item--heading">ngủ</div>
+                                        <input  class="input__interests--checkbox" type="checkbox">
+                                    </label>
+
+                                    <label  class="input__interests--item">
+                                        <div class="input__interests--item--heading">ăn</div>
+                                        <input  class="input__interests--checkbox" type="checkbox">
+                                    </label>
+
+                                </div>
+                                <div class="input__textarea">
+                                    <div class="input__textarea--heading"> nghi chú</div>
+                                    <textarea class="input__textarea--item" name="" id="" cols="30" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <div class="bai4__button">
+                                <button class="button__test" disabled>test</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end -->
+                </div>
+                <div class="footer">
+                    <div class="footer__info">
+                        <div class="info__img">
+                            <img src="./assets/img/logo/tải xuống.png" alt="">
+                        </div>
+                        <div class="info__student">
+                            <div class="info__student-item">
+                                name : <span id="info__student-item--name"> nguyễn hoàn phúc</span>
+                            </div>
+                            <div class="info__student-item">
+                                id : <span id="info__student-item--id">ps21346 </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <!-- mada-->
+    <div class="moda remove">
+        <div class="moda__test-input">
+            <div class="moda--background__banner">
+                <img class="moda--background__banner--img" src="./assets/img/logo/Bom Dia.png" alt="">    
+            </div>
+            <div class="moda__content">
+                 không thành công mất rồi
+            </div>
+            <div class="moda__button" >
+                <button class="moda__button--come-back" >làm lại </button>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/style.js"></script>
+</body>
+</html>

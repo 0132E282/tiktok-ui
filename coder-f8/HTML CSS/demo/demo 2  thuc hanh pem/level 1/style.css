@@ -1,0 +1,44 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+body > #main {
+    margin: auto;
+}
+
+#main .btn{
+    margin: 40px;
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 12px 48px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: opacity .2s ease ;
+    he
+}
+#main .btn:hover{
+    opacity: 0.6;
+}
+.btn + .btn{
+    margin-left: 18px;
+}
+#main .btn--success{
+    background-color: #6BB233;
+
+}
+#main .btn-warn{
+    background-color: #DC9500;
+}
+#main .btn--danger{
+    background-color: #AA391F
+}
+.btn--disabled{
+    opacity:0.5 !important ;
+    cursor:default;
+}
+.btn-size-n{
+    padding: 16px 49px !important;
+}

@@ -1,0 +1,99 @@
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 132px;
+    height: 40px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 40px;
+    padding: 10px 20px;
+}
+:root{
+
+}
+.open{
+    display: block !important;
+}
+.remove{
+    display: none;
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html{
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: 62.55555%;
+    text-transform: capitalize;
+}
+.input__name--item-test{
+    position: absolute;
+    font-size: 1.1rem;
+    border: 1px solid red;
+    background-color: #ffff;
+    border-radius: 50px;
+    padding: 2px;
+   
+}
+.background1{
+    background-image: url(../img/banner/anh-nen-hot-girl-full-hd-cho-may-tinh.jpg);
+    padding-top: 63%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 1200px;
+    animation:rightToLeft 0.5s linear;
+}
+.background2{
+    background-image: url(../img/banner/hinh-nen-gai-xinh-hd-1.jpg);
+    padding-top: 63%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 1200px;
+    animation:rightToLeft 0.5s linear;
+}
+.background3{
+    background-image: url(../img/banner/cham-soc-da-vao-mua-dong.jpg);
+    padding-top: 63%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 1200px;
+    animation:rightToLeft 0.5s linear;
+}
+.background4{
+    background-image: url(../img/banner/hinh-nen-girl-xinh-4k-cho-pc-05.jpg);
+    padding-top: 63%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 1200px;
+    animation:rightToLeft 0.5s linear;
+}
+.background5{
+    background-image: url(../img/banner/hinh-nen-girl-xinh-full-hd-cho-laptop-2.jpg);
+    padding-top: 63%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 1200px;
+    animation:rightToLeft 0.5s  linear;
+
+}
+.background6{
+    background-image: url(../img/banner/hinh-nen-hot-girl-cho-may-tinh-84.jpg);
+    padding-top: 63%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 1200px;
+    animation:rightToLeft 0.5s linear;
+}
+@keyframes rightToLeft{
+    from{
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to{
+        opacity: 1;
+        transform:translateX(0) ;
+    }
+}

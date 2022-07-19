@@ -1,0 +1,17 @@
+use quanlybanhang;
+select * from khachhang;
+select * from khachhang limit 10; 
+select masanpham,tensanpham,dongia*soluong as tientonkho from sanpham;
+select makhachhang,concat(hovatenlot,' ',ten) as hovaten ,diachi from khachhang where ten like 'h%';
+select * from khachhang where diachi like 'Da Nang';
+select * from sanpham where soluong > 100 and soluong < 500;
+select * from hoadon where trangthai ='Chua thanh toan 'and year(ngaymuahang) = 2016;
+select * from hoadon where makhachhang like 'KH%';
+select count(*) from khachhang;
+select max(dongia) from sanpham;
+select min(soluong) from sanpham ;
+select sum(soluong) from sanpham ;
+select * from hoadon where month(ngaymuahang)=12 and trangthai = 'Chua thanh toan';
+select mahoadon,sum(soluong) from hoadonchitiet group by mahoadon,masanpham ;
+select mahoadon,sum(soluong) from hoadonchitiet where mahoadon >=5 group by mahoadon ;
+select mahoadon,ngaymuahang,makhachhang from hoadon order by  ngaymuahang;

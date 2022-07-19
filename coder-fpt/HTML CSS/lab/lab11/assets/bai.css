@@ -1,0 +1,16 @@
+table{
+    border-collapse: collapse;
+    min-width: 800px;
+    height: 400px;
+    text-align: center;
+    border: 1px solid #ff0080;
+    font-size: 26px;
+}
+tr:nth-child(2n+1){
+    background-color: aquamarine;
+}
+tr:nth-child(1),tr:nth-child(2){
+    background-color: blue;
+    color: #ffff;
+    border: #ffff;
+}

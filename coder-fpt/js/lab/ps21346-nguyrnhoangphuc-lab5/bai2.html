@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cart">
+        <div class="cart-product">
+            <div class="cart__heading">
+                các sản phẩm hoa
+            </div>
+            <table class="cart__bable">
+                <tr class="cart__table--row">
+                    <td class="cart__table--col">
+                        <input type="checkbox">
+                    </td>
+                    <td class="cart__table--col">
+                        tên sản phẩm
+                    </td>
+                    <td class="cart__table--col">
+                        giá
+                    </td>
+                    <td class="cart__table--col">
+                       chọn
+                    </td>
+                </tr>
+                <tr class="cart__table--row">
+                    <td class="cart__table--col">
+                        <input type="checkbox"  onchange="datt(this)">
+                    </td>
+                    <td class="cart__table--col">
+                        hạnh phúc chọn vẹn
+                    </td>
+                    <td class="cart__table--col">
+                        900000
+                    </td>
+                    <td class="cart__table--col">
+                       <button class="cart__tablet--col-button" onclick="them(this)"  data-price="900000">chọn</button>
+                    </td>
+                </tr>
+                <tr class="cart__table--row">
+                    <td class="cart__table--col">
+                        <input type="checkbox"onchange="datt(this)">
+                    </td>
+                    <td class="cart__table--col">
+                       kim cương
+                    </td>
+                    <td class="cart__table--col">
+                        700000
+                    </td>
+                    <td class="cart__table--col">
+                       <button class="cart__tablet--col-button"onclick="them(this)"  data-price=" 700000">chọn</button>
+                    </td>
+                </tr>
+                <tr class="cart__table--row">
+                    <td class="cart__table--col" >
+                        <input type="checkbox" onclick="them(this)">
+                    </td>
+                    <td class="cart__table--col">
+                       vàng
+                    </td>
+                    <td class="cart__table--col">
+                        600000
+                    </td>
+                    <td class="cart__table--col">
+                       <button class="cart__tablet--col-button"onclick="them(this)"  data-price="600000">chọn</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="total__mony" >
+            <div class="total__mony--heading">
+                thanh toán
+            </div>
+            <table id="cart">
+
+            </table>
+        </div>
+        <h1>tông thành tiền  : <span id="total-money"></span></h1>
+    </div>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

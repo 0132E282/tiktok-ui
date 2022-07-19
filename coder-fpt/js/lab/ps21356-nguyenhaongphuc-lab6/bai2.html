@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/bai2.css">
+    <title>Document</title>
+</head>
+<body>
+    <form  >
+        <p> <label>Sản phẩm</label> <input onchange="testProduct(this)" id="tensp" class="input--text " placeholder="Nhập tên sản phẩm"/>
+         <div class="sp__error error"></div>
+        </p>
+        <p> <label>Loại</label>
+            <select class="input--text"  oninput="testListProduct(this)" id="loai">
+                <option value="">Chọn loại sản phẩm</option>
+                <option value="DT">Điện thoại</option>
+                <option value="MT">Máy tính</option>
+            </select>
+           <div class="error lsp-error"></div>
+        </p>
+        <p> 
+            <label>Đơn giá</label> 
+            <input id="gia" oninput="testPrice(this)" placeholder="Nhập đơn giá "class="input--text"  /> 
+            <div class="error price--error"></div>
+        <p> 
+            <label>Nơi nhận hàng</label>
+            <input class="input--checkbox" type="radio" onchange="testRadio(this)" name="diachi">Nội thành
+            <input class="input--checkbox" type="radio" onchange="testRadio(this)" name="diachi">Ngoại thành
+           
+        </p>
+        <div id="kq"></div>
+        <p id="vc">
+            <label>Phí vận chuyển</label> 
+            <input id="phi_vc" disabled  value="100000"></p>    
+            <div class="error__radio error"></div>
+        <p> 
+            <label></label> <button type="button" onclick=" testAll()" >Đặt mua</button>
+        </p>  
+    </form>    
+    <script src="./assets/js/bai2.js"></script>
+</body>
+</html>

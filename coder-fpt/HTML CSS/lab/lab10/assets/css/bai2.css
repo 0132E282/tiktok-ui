@@ -1,0 +1,48 @@
+form{
+    max-width: 400px;
+    font-size: 15px;
+    color: black;
+    font-variant: small-caps;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.form__text{
+    max-width: 100%;
+}
+.form__text input{
+    width: 98%;
+    outline:none;
+}
+.form__radio{
+  margin-top: 10px;  
+}
+label div{
+    display: inline-block;
+}
+.form__date{
+    margin: 10px 0;
+}
+.form__date input{
+    width: 100%;
+}
+select{
+    width: 100%;
+}
+option{
+    border-radius: 0;
+}
+.font__munber input{
+    width:98%;
+}
+.fonm__checkbox{
+    margin:10px 0;
+}
+textarea{
+    resize: none;
+    width: 100%;
+}
+.form__date input:focus{
+    background-color: darkgoldenrod;
+    border: 1px solid rgb(165, 221, 143);
+    outline: none;
+}

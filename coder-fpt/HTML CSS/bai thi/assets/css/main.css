@@ -1,0 +1,139 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.grind{
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+}
+.row{
+    display: flex;
+    flex-wrap:wrap;
+    margin: 0 -10px;
+}
+.col-24{
+    max-width: 25%;
+    padding: 0 10px;
+}
+.header{
+    background-color: #ffff;
+    height: 110px;
+}
+.hader__top-navbar{
+    height: 69px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar__top-info img{
+    width: 165px;
+}
+.navbar__top-logo img{
+    width: 70px;
+}
+.navbar__top-personal{
+    display: flex;
+}
+.personal-login{
+    margin-right: 10px;
+   
+}
+.personal-login-link{
+    text-decoration: none;
+    font-size: 15px;
+    color: #000;
+    font-weight: 500;
+    position: relative;
+    top: 4px;
+}
+.presonal-language{
+    display: flex;
+    align-items: center;
+}
+.presonal-language div{
+    margin-right: 10px;
+    font-size: 15px;
+    color: #000;
+    text-transform: uppercase;
+}
+.presonal-language div:last-child{
+    border-left: 1px solid #000;
+    padding-left: 10px;
+}
+.navbar__bottom-cart{
+    width: 95px;
+    height: 30px;
+    border: 1px solid #00ff40;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.header__bottom{
+    height: 41px;
+    align-items: center;
+}
+.navbar-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.navbar-item{
+    list-style: none;
+}
+.navbar-item a{
+    text-decoration: none;
+    font-size: 20px;
+    color: #666666;
+}
+.container{
+    padding-top: 10px;
+}
+.product{
+    margin-bottom: 10px;
+}
+.product-img img{
+    width: 100%;
+}
+.prodcut-container{
+    padding: 10px 20px 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.product-container-name{
+    font-size: 20px;
+    text-transform: capitalize;
+    color: #000;
+    font-weight: 700;
+}
+.prodcut-container-price{
+    color: #0C713D;
+    font-size: 20px;
+    padding: 20px 0;
+    font-weight: 700;
+}
+.product-container-buy{
+    width: 114px;
+    height: 32px;
+    border-radius: 3px;
+    background-color: #fff;
+   border:1px solid #0C713D ;
+    font-size: 15px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+}
+.product-container-buy:hover{
+    color: #ffff;
+    background-color: #0C713D;
+}
+.footer{
+    padding: 20px 0;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id="box"style="border:1px solid red ; width: 100px; height: 100px;" ondrop="drop(event)"ondragover="allDrop(event)"></div>
+    <div id="123" ondragstart="dragStart(event)" draggable="true">
+        text demo
+    </div>
+    <script>
+     function dragStart(e){
+        e.dataTransfer.setData('text',e.target.id);
+      
+     }
+      function allDrop(e){
+          e.preventDefault()
+      }
+      function drop(event) {
+        event.preventDefault();
+        var data = event.dataTransfer.getData("Text");
+        console.log(data)
+        event.target.appendChild(document.getElementById(data));
+      }
+    </script>
+</body>
+</html>

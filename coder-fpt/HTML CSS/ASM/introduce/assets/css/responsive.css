@@ -1,0 +1,69 @@
+@media screen and (min-width: 63.9375em) {
+
+}
+/* tablet */
+@media screen and (min-width:46.25em) and (max-width: 63.9375em){
+    .dl{
+        display: none;
+    }
+    
+    #header {
+
+    }
+    .container__General{
+        padding: 36px 0;
+    }
+    .General__heading{
+        font-size: 2.2rem;
+    }
+    .General__container{
+        font-size: 1.6rem;
+    }
+    .General__button{
+        width: 100%;
+    }
+    .journeys__list{
+        padding: 0 15px;
+    }
+    .journeys__list-item{
+        flex-direction: column;
+        padding: 0 0 24px 24px;
+        
+    }
+    .journeys__list-column{
+        left: 0;
+       
+    }
+    .journeys__list-column::after{
+        box-shadow: 0 535px 0 0 #ee4d2d;
+    }
+    .journeys__list-item-img{
+       width: auto;
+        height: 414px;
+        margin: 0;
+    }
+    .container__background-banner-img-pc{
+        display: none;
+    }
+    .container__background-baner-img-tablet{
+        display: inline;
+    }
+    .container__nature-heading{
+        margin-bottom: 24px;
+        font-size: 2.2rem;
+    }
+    .container__nature-content-list{
+        margin-bottom: 24px;
+    }
+    .container__nature-subheading{
+        font: 1.8rem;
+    }
+    .background__banner-slogan-img{
+        margin: 0;
+        height: 360px;
+    }
+}
+/* mobai */
+@media screen and (max-width: 63.9375em) {
+
+}
