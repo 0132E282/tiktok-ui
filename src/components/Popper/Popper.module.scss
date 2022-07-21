@@ -1,0 +1,14 @@
+.wrapper {
+    min-width: 361px;
+    background: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
+    padding-top: 8px;
+    margin-top: -6px;
+    max-height: 710px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        width: 1px;
+    }
+}

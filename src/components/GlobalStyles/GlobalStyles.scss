@@ -6,9 +6,13 @@
     --color-black: #000;
     --color-primary: rgba(254, 44, 85, 1.0);
     --color-secondary: rgba(22, 24, 35, 0.75);
+    // text 
+    --color-text-primary: #161823;
+    --color-text-secondary: rgba(22, 24, 35, 0.75);
 }
 
 * {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
