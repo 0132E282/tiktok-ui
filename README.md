@@ -4,9 +4,9 @@
 <h3> all library used in this project </h3>
 <ul> 
   <li>Tippy https://github.com/atomiks/tippyjs-react </li>
-  <li>react router dom </li>
-  <li>classnames  </li>
-  <li>babelrc </li>
- <li>prettierrc </li>
- <li>sass </li>
+  <li>react router dom  https://github.com/remix-run/react-router#readme</li>
+  <li>classnames https://github.com/JedWatson/classnames#readme  </li>
+  <li>babelrc https://babeljs.io/docs/en/config-files </li>
+ <li>prettierrc https://prettier.io/docs/en/configuration.html </li>
+ <li>sass https://sass-lang.com/ </li>
 </ul>
