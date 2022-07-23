@@ -1,5 +1,5 @@
 .wrapper {
-    min-width: 361px;
+    width: 100%;
     background: rgb(255, 255, 255);
     border-radius: 8px;
     box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
@@ -10,5 +10,9 @@
 
     &::-webkit-scrollbar {
         width: 1px;
+    }
+
+    &>div:hover {
+        background: rgba(22, 24, 35, 0.03);
     }
 }

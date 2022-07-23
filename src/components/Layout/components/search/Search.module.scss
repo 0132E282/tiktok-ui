@@ -1,6 +1,5 @@
 .wrapper {
     --height: 46px;
-    min-width: 361px;
     height: var(--height);
     background-color: #f1f1f2;
     border-radius: 100px;
@@ -9,6 +8,11 @@
     justify-content: space-between;
     align-items: center;
     max-height: 710px;
+}
+
+.wrapper,
+.search-result {
+    min-width: 361px;
 }
 
 .text-input {
@@ -50,6 +54,10 @@
     cursor: pointer;
     border: none;
     position: relative;
+
+    &:active {
+        background-color: #4B4D55;
+    }
 
     &:hover {
         background: rgba(22, 24, 35, 0.03);

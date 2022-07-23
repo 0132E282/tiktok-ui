@@ -44,3 +44,52 @@ export const IconClear = ({ className, width = '1rem', height = '1rem', color = 
         </path>
     </svg>
 }
+export const IconContainer = ({ className, width = '1rem', height = '1rem', color = "rgba(22, 24, 35, 0.34)" }) => {
+    return <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox={"0 0 48 48"}
+        fill={color}
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M22.1086 20.3412C23.1028 19.2196 24.8972 19.2196 25.8914 20.3412L42.8955 39.5236C44.2806 41.0861 43.1324 43.5 41.004 43.5L6.99596 43.5C4.86764 43.5 3.71945 41.0861 5.10454 39.5235L22.1086 20.3412Z">
+        </path>
+        <path
+            d="M4.5 7.5C4.5 5.84315 5.84315 4.5 7.5 4.5L40.5 4.5C42.1569 4.5 43.5 5.84315 43.5 7.5C43.5 9.15685 42.1569 10.5 40.5 10.5L7.5 10.5C5.84315 10.5 4.5 9.15685 4.5 7.5Z">
+        </path>
+    </svg>
+}
+export const IconListMenu = ({ className, width = '2rem', height = '2rem', color = "rgba(22, 24, 35, 0.34)" }) => {
+    return <svg className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 48 48"
+        fill={color}
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path fillRule="evenodd"
+            clipRule="evenodd"
+            d="M24 4C26.2091 4 28 5.79086 28 8C28 10.2091 26.2091 12 24 12C21.7909 12 20 10.2091 20 8C20 5.79086 21.7909 4 24 4ZM24 20C26.2091 20 28 21.7909 28 24C28 26.2091 26.2091 28 24 28C21.7909 28 20 26.2091 20 24C20 21.7909 21.7909 20 24 20ZM24 36C26.2091 36 28 37.7909 28 40C28 42.2091 26.2091 44 24 44C21.7909 44 20 42.2091 20 40C20 37.7909 21.7909 36 24 36Z" >
+        </path>
+    </svg>
+}
+export const IconAdd = ({ className, width = '2rem', height = '2rem', color = "rgba(22, 24, 35, 0.34)" }) => {
+    return <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox={"0 0 16 16"}
+        fill={color}
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path fillRule="evenodd"
+            clipRule="evenodd"
+            d="M8 2.5C7.58579 2.5 7.25 2.83579 7.25 3.25V7.25H3.25C2.83579 7.25 2.5 7.58579 2.5 8C2.5 8.41421 2.83579 8.75 3.25 8.75H7.25V12.75C7.25 13.1642 7.58579 13.5 8 13.5C8.41421 13.5 8.75 13.1642 8.75 12.75V8.75H12.75C13.1642 8.75 13.5 8.41421 13.5 8C13.5 7.58579 13.1642 7.25 12.75 7.25H8.75V3.25C8.75 2.83579 8.41421 2.5 8 2.5Z">
+
+        </path>
+    </svg>
+}
