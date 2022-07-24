@@ -52,7 +52,7 @@ function Button({
             }
         })
     }
-    return <TypeBtn className={classes} {...Prop} onClick={onClick}>
+    return <TypeBtn className={classes} onClick {...Prop}>
         {iconLeft && <span className={c('icon-left')}>{iconLeft}</span>}
         {content ? content : icon}
         {iconRight && <span className={c('icon-right')} >{iconRight}</span>}

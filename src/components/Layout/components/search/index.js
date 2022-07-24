@@ -10,9 +10,6 @@ import AccountItem from '~/components/AccountItem';
 const c = classNames.bind(styles);
 function Search() {
     const [searchResult, setSearchResult] = useState([]);
-    useEffect(() => {
-        setSearchResult([0, 1])
-    })
     return <Tippy
         interactive={true}
         visible={searchResult.length > 0}

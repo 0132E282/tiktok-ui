@@ -1,0 +1,54 @@
+.content {
+    min-width: 230px;
+    z-index: 1;
+    margin-right: -7px;
+    margin-top: -8px;
+}
+
+.menu-wrapper {
+    padding-bottom: 8px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 10px 16px;
+
+    &~a,
+    &~button {
+        margin-left: 0;
+    }
+
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.icon {
+
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.header {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-back {
+    width: 50px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+}
+
+.header-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-left: 20px;
+}
