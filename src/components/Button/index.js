@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const c = classnames.bind(styles);
 function Button({
+    key,
     to,
     href,
     onClick,
@@ -52,7 +53,7 @@ function Button({
             }
         })
     }
-    return <TypeBtn className={classes} onClick {...Prop}>
+    return <TypeBtn className={classes} onClick  {...Prop}>
         {iconLeft && <span className={c('icon-left')}>{iconLeft}</span>}
         {content ? content : icon}
         {iconRight && <span className={c('icon-right')} >{iconRight}</span>}

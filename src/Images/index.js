@@ -1,6 +1,9 @@
-import img from '~/assets/img'
-function Image({ className, src = img.userDefault, alt = '', ...prop }) {
-    return <img className={className} src={src} alt={alt}  {...prop} />;
-}
+import img from '~/assets/img';
+import { forwardRef } from 'react';
+const Image = forwardRef(
+    ({ className, src = img.userDefault, alt = '', ...prop }, ref) => {
+        return <img ref={ref} className={className} src={src} alt={alt}  {...prop} />
+    }
+)
 
 export default Image;

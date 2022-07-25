@@ -1,12 +1,12 @@
 import classnames from 'classnames/bind';
 import styles from './Menu.module.scss';
 import Tippy from '@tippyjs/react/headless';
+import { useState } from 'react';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import MenuItem from './MenuItem';
 import Header from './Header';
 import { IconBack } from '~/icon';
-import { useState } from 'react';
 const c = classnames.bind(styles);
 
 function Menu({ children, menuItem = [], onChange }) {
@@ -26,8 +26,8 @@ function Menu({ children, menuItem = [], onChange }) {
         })
     }
     return <Tippy
+        delay={[0, 500]}
         placement={'top-end'}
-        visible={true}
         interactive={true}
         render={attrs => (
             <div className={c('content')} tabIndex={-1} {...attrs}>

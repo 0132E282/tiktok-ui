@@ -3,9 +3,12 @@ import Button from '~/components/Button';
 import styles from './Menu.module.scss';
 
 const c = className.bind(styles);
-function MenuItem({ key, data, onClick }) {
+function MenuItem({ data, onClick }) {
+    const classes = c('menu-item', {
+        separate: data.separate
+    });
     return (
-        <Button className={c('menu-item')} iconLeft={data.icon} content={data.title} key={key} onClick={onClick} />
+        <Button className={classes} iconLeft={data.icon} content={data.title} onClick={onClick} />
     );
 }
 

@@ -39,3 +39,20 @@ ul {
 button {
     cursor: pointer;
 }
+
+// custom tippy library
+body {
+    .tippy-arrow {
+        color: rgba(84, 84, 84, 0.92);
+    }
+
+    .tippy-box {
+        min-width: 83px;
+        height: 38px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        background-color: rgba(84, 84, 84, 0.92);
+    }
+}

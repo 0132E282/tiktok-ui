@@ -30,3 +30,17 @@
     justify-content: center;
     border: none;
 }
+
+.action-btn {
+    border: none;
+    background-color: transparent;
+    min-width: 32px;
+    padding: 2px;
+}
+
+.avatar-user {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 32px;
+    height: 32px;
+}
