@@ -9,7 +9,7 @@ import Header from './Header';
 import { IconBack } from '~/icon';
 const c = classnames.bind(styles);
 
-function Menu({ children, menuItem = [], onChange }) {
+function Menu({ children, menuItem = [], hideOnClick = false, onChange }) {
     const [history, setHistory] = useState([{ data: menuItem }]);
     //call 
     const current = history[history.length - 1];
@@ -26,6 +26,7 @@ function Menu({ children, menuItem = [], onChange }) {
         })
     }
     return <Tippy
+        hideOnClick={hideOnClick}
         delay={[0, 500]}
         placement={'top-end'}
         interactive={true}

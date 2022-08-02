@@ -1,8 +1,13 @@
 import img from '~/assets/img';
-import { forwardRef } from 'react';
+import { forwardRef, useState } from 'react';
 const Image = forwardRef(
-    ({ className, src = img.userDefault, alt = '', ...prop }, ref) => {
-        return <img ref={ref} className={className} src={src} alt={alt}  {...prop} />
+    ({ className, src, alt = '', ...prop }, ref) => {
+        let images = src ? src : img.userDefault;
+        const [fallback, setFallback] = useState('');
+        const handleImgError = () => {
+            setFallback(img.userDefault)
+        }
+        return <img ref={ref} className={className} src={fallback || images} alt={alt}  {...prop} onError={handleImgError} />
     }
 )
 

@@ -9,6 +9,8 @@
     // text 
     --color-text-primary: #161823;
     --color-text-secondary: rgba(22, 24, 35, 0.75);
+    // font
+    --font-primary: 'IBM Plex Sans', sans-serif;
 }
 
 * {
@@ -22,15 +24,13 @@ html {
 }
 
 body {
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: var(--font-primary);
     font-size: 1.6rem;
     line-height: 2.2rem;
 
 }
 
-a {
-    text-decoration: none;
-}
+
 
 ul {
     list-style: none;

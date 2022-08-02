@@ -8,6 +8,8 @@ import { Search } from '~/components/Layout/components';
 import Button from '~/components/Button';
 import Menu from "~/components/Popper/Menu";
 import Image from "~/Images";
+import { Link } from "react-router-dom";
+import routesConfig from "~/config/routes";
 import { IconAdd, IconListMenu, IconLanguages, IconSetting, IconShortcuts, IconNotifications, IconMessage, IconHelp, IconUser, IconCoin, IconLogout } from "~/icon";
 const c = classNames.bind(styles);
 const MENU_ITEM = [
@@ -66,7 +68,9 @@ function Header() {
     return <div className={c('wrapper')}>
         <div className={c('navbar')}>
             <div className={c('logo')}>
-                <img src={images.logoTiktok} alt={'logo tiktok ui'} />
+                <Link to={routesConfig.home} className={c('logo-link')}>
+                    <img src={images.logoTiktok} alt={'logo tiktok ui'} />
+                </Link>
             </div>
             <Search />
             <div className={c('user')}>
@@ -96,7 +100,9 @@ function Header() {
                             menuItem={isLogin ? userMenu : MENU_ITEM}
                         >
                             <button className={c('btn-setting')}>
-                                <Image width={'32px'} height={'32px'} className={c('avatar-user')} />
+                                <Image
+                                    src={'https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/fac92301a36c2275c99f393061ef04ca~c5_100x100.jpeg?x-expires=1658937600&x-signature=cBqjUB51n%2BRTrWWXBJj7Rjl7dJ4%3D'}
+                                    width={'32px'} height={'32px'} className={c('avatar-user')} />
                             </button>
                         </Menu>
                     </>
@@ -107,6 +113,7 @@ function Header() {
                         <Menu
                             onChange={handleMenuChanges}
                             menuItem={MENU_ITEM}
+                            hideOnClick={true}
                         >
                             <button className={c('btn-setting')}>
                                 <IconListMenu color={'#161823'} />
