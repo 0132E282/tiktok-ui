@@ -9,4 +9,5 @@
   <li>babelrc https://babeljs.io/docs/en/config-files </li>
  <li>prettierrc https://prettier.io/docs/en/configuration.html </li>
  <li>sass https://sass-lang.com/ </li>
+  <li>axios https://github.com/axios/axios </li>
 </ul>
