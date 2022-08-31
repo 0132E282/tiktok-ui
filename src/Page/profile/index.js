@@ -1,7 +1,5 @@
 function Home() {
-    return <div>
-        nickname
-    </div>;
+    return <div>nickname</div>;
 }
 
 export default Home;

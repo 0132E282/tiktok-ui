@@ -1,7 +1,5 @@
 function Following() {
-    return <div>
-        gape following
-    </div>;
+    return <div>gape following</div>;
 }
 
 export default Following;

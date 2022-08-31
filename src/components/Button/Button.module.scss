@@ -1,7 +1,7 @@
 .wrapper {
     outline: none;
     min-height: 20px;
-    width: 100%;
+    min-width: 100%;
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -33,8 +33,8 @@
         margin-left: 8px;
     }
 
-    &~a,
-    &~button {
+    & ~ a,
+    & ~ button {
         margin-left: 15px;
     }
 }
@@ -75,7 +75,7 @@
     border: none;
 
     &:hover {
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #FE2C55;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
     }
 }
 
@@ -89,7 +89,7 @@
     background-color: var(--color-primary);
 
     &:hover {
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #FE2C55;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
     }
 }
 

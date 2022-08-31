@@ -1,13 +1,13 @@
-import Header from "./Header";
+import Header from './Header';
 function DefaultLayout({ children }) {
-    return <div>
-        <Header />
-        <div className={'container'}>
-            <div className="content">
-                {children}
+    return (
+        <div>
+            <Header />
+            <div className={'container'}>
+                <div className="content">{children}</div>
             </div>
         </div>
-    </div>;
+    );
 }
 
 export default DefaultLayout;

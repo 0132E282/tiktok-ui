@@ -6,13 +6,9 @@
     padding-top: 8px;
     margin-top: -6px;
     max-height: 710px;
-    overflow: auto;
+    overflow-y: overlay;
 
     &::-webkit-scrollbar {
         width: 1px;
-    }
-
-    &>div:hover {
-        background: rgba(22, 24, 35, 0.03);
     }
 }

@@ -16,8 +16,8 @@
     padding: 10px 16px;
     border-radius: 0;
 
-    &~a,
-    &~button {
+    & ~ a,
+    & ~ button {
         margin-left: 0;
     }
 
@@ -27,7 +27,6 @@
 }
 
 .icon {
-
     margin-right: 8px;
     display: flex;
     align-items: center;

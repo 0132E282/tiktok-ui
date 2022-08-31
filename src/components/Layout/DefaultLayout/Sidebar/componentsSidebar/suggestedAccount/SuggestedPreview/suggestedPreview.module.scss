@@ -1,0 +1,62 @@
+.wrapper {
+    background-color: #fff;
+    width: 320px;
+    padding: 20px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
+    border-radius: 8px;
+    margin-top: -8px;
+}
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+.image {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+}
+.title {
+    display: flex;
+    align-items: center;
+    line-height: 2.3rem;
+    margin-bottom: 3px;
+}
+.title_nickname {
+    font-size: 1.8rem;
+    color: var(--color-text-primary);
+    max-width: 230px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.container_fullname {
+    font-size: 1.4rem;
+    color: var(--color-text-secondary);
+    max-width: 230px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 1.8rem;
+}
+.container_interactive {
+    margin-top: 8px;
+}
+.interactive_item {
+    display: inline-block;
+    margin-right: 12px;
+    line-height: 2.2rem;
+}
+
+.interactive_item {
+    font-size: 1.7rem;
+    color: var(--color-text-secondary);
+    font-weight: 400;
+    & span {
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin-right: 6px;
+    }
+}

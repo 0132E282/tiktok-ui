@@ -15,11 +15,17 @@ function App() {
                             Layout = Fragment;
                         }
                         const Page = router.component;
-                        return <Route
-                            key={index}
-                            path={router.path}
-                            element={<Layout><Page /></Layout>}
-                        />
+                        return (
+                            <Route
+                                key={index}
+                                path={router.path}
+                                element={
+                                    <Layout>
+                                        <Page />
+                                    </Layout>
+                                }
+                            />
+                        );
                     })}
                 </Routes>
             </div>
