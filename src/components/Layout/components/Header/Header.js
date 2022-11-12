@@ -16,73 +16,19 @@ import routesConfig from '~/config/routes';
 import {
     IconAdd,
     IconListMenu,
-    IconLanguages,
-    IconSetting,
-    IconShortcuts,
     IconNotifications,
     IconMessage,
-    IconHelp,
-    IconUser,
-    IconCoin,
-    IconLogout,
 } from '~/icon';
+import { MENU_ITEM , userMenu } from '~/components/Popper/Menu/ListMenuItem';
 const c = classNames.bind(styles);
 
-const MENU_ITEM = [
-    {
-        title: 'Tiếng Việt',
-        icon: <IconLanguages color={'#161823'} />,
-        children: {
-            title: 'ngôn ngữ',
-            data: [
-                {
-                    code: 'en',
-                    title: 'english',
-                },
-                {
-                    code: 'vi',
-                    title: 'tiếng việt',
-                },
-            ],
-        },
-    },
-    {
-        title: 'trợ giúp',
-        icon: <IconHelp color={'#161823'} />,
-        to: './setting',
-    },
-    {
-        title: 'Các Phím Tắc',
-        icon: <IconShortcuts color={'#161823'} />,
-    },
-];
-const userMenu = [
-    {
-        title: 'trang cá nhân',
-        icon: <IconUser color={'#161823'} width={'2rem'} height={'2rem'} />,
-    },
-    {
-        title: 'nhận xu',
-        icon: <IconCoin width={'2rem'} height={'2rem'} />,
-    },
-    {
-        title: 'cài đặt',
-        icon: <IconSetting color={'#161823'} />,
-    },
-    ...MENU_ITEM,
-    {
-        separate: true,
-        title: 'đăng xuất',
-        icon: <IconLogout />,
-    },
-];
 const isLogin = false;
 
 function Header() {
+    const [isModal, setIsModal] = useState(false);
     const handleMenuChanges = (menuItem) => {
         console.log(menuItem);
     };
-    const [isModal, setIsModal] = useState(false);
     const openModal = () => {
         setIsModal(true);
     };

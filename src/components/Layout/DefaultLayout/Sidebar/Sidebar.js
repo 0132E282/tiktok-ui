@@ -2,15 +2,14 @@ import styles from './Sidebar.module.scss';
 import classnames from 'classnames/bind';
 import { useState, useEffect } from 'react';
 
-import Modal from '~/components/modal';
+
 import { IconHome, IconLive, IconFollowing } from '~/icon';
 import configRoutes from '~/config/routes';
 import Menu, { ItemMenu } from './componentsSidebar/Menu';
-import Button from '~/components/Button';
 import SuggestedAccount from './componentsSidebar/suggestedAccount';
-import * as userServices from '~/Services/userServices';
+import * as userServices from '~/Services/Api/userServices';
 const c = classnames.bind(styles);
-const login = true;
+
 const INIT_PAGE = 1;
 const INIT_PER = 5;
 function Sidebar() {
@@ -55,7 +54,9 @@ function Sidebar() {
             .then((res) => {
                 setSuggestedUser((prevUser) => [...prevUser, ...res]);
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                console.log(err);
+            });
     }, [page]);
 
     const handleSeeAll = () => {
@@ -64,26 +65,23 @@ function Sidebar() {
     return (
         <div className={c('wrapper')}>
             {renderMenuSidebar()}
-            <div className={c('following')}>
-                {login ? (
-                    <>
-                        <SuggestedAccount
-                            data={suggestedUser}
-                            title={'Tài khoản được đề xuất'}
-                            btnContentNext={'xem tat ca'}
-                            onSeeAll={handleSeeAll}
-                        />
-                    </>
-                ) : (
-                    <>
-                        <div className={c('following-content')}>
-                            Đăng nhập để follow các tác giả, thích video và xem bình luận.
-                        </div>
-                        <Button medium content={'đăng nhập'} className={c('btn-sidebar_login')} />
-                    </>
-                )}
+            <div className={c('user')}>
+                <SuggestedAccount
+                    data={suggestedUser}
+                    title={'Tài khoản được đề xuất'}
+                    btnContentNext={'xem tat ca'}
+                    onSeeAll={handleSeeAll}
+                 />
+                 <SuggestedAccount
+                    data={suggestedUser}
+                    title={'Các tài khoản đang follow'}
+                    btnContentNext={'Xem thêm'}
+                    onSeeAll={handleSeeAll}
+                 />
             </div>
-            <div className={c('offer')}></div>
+            <div className={c('suggestedUser')}>
+               
+            </div>
         </div>
     );
 }

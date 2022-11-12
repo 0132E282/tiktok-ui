@@ -21,6 +21,7 @@ function Menu({ children, menuItem = [], hideOnClick = false, onChange, ...passP
                     key={index}
                     data={item}
                     onClick={() => {
+                        // handle when there is children 
                         if (isChildren) {
                             setHistory((prev) => [...prev, item.children]);
                         } else {

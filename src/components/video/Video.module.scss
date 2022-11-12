@@ -1,0 +1,133 @@
+.video-wrapper__container{
+    margin-right: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    height: calc(450px + (100vw - 768px) / 1152 * 100);
+    &:hover .controller__button .btn__play-pause{
+        display: flex;
+    }
+    &:hover .video-volume {
+        display: block;
+    }
+    &:hover .controller__seekBar{
+        display: flex;
+    }
+    & video {
+        object-fit: cover;
+        display: block;
+        width: 100%;
+        height: 100%;
+        &:hover .video__container--controller{
+            display: block;
+        }
+    }
+}
+.video__container--controller{
+    position: absolute;
+    bottom: 12px;
+    right: 0;
+    left: 0;
+    & .controller__button{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 20px;
+        & .btn__play-pause{
+            display: none;
+        }
+    }
+}
+.video-volume{
+    position: relative;
+    max-width: 40px;
+    display: none;
+    &:hover .video-volume__controller{
+        display: flex;
+    }
+}
+.video-volume__controller{
+    position: absolute;
+    transform: rotate(-90deg) translateY(-20%);
+    background: rgba(22, 24, 35, 0.34);
+    cursor: initial;
+    padding: 0 10px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10000px;
+    top: -22px;
+    right: -50%;
+    height: 24px;
+    width: 64px;
+    margin: -50% 0 0 0;
+    & input {
+        -webkit-appearance: none; 
+        appearance: none;
+        background: #fff;
+        height: 2px;
+        width: 100%;
+        color: #fff;
+    }
+    & input::-webkit-slider-thumb {
+        background: #fff;
+        -webkit-appearance: none;
+        appearance: none;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+    }
+}
+.controller__seekBar{
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    height: 16px;
+    padding: 0 12px;
+    & .seekBar-range{
+        flex: 1;
+        height: 4px;
+        margin-right: 8px;
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.241);
+       
+        & input {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            display: block;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            background-color: transparent;
+        }
+        & input::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 4px;
+            width: 4px;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.2s ease-in;
+        }
+        &:hover input::-webkit-slider-thumb  {
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+        }
+
+        & span {
+            height: 100%;
+            width: 0;
+            background-color: #fff;
+            display: block;
+        }
+    }
+    .seekBar__duration{
+        font-size: 10px;
+        color: #fff;
+    }
+}

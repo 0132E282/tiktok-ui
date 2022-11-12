@@ -1,14 +1,33 @@
 .wrapper {
-    width: 350px;
-    padding: 24px 0 24px 8px;
+    width: var(--w-sidebar);
+    padding: 24px 12px 24px 8px;
+    position: fixed;
+    top: 60px;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    perspective-origin: right top;
+    &::-webkit-scrollbar{
+        display: none;
+        width: 6px;
+    }
+    &::-webkit-scrollbar-thumb{
+        width: 6px;
+        border-radius: 3px;
+        background: rgba(22, 24, 35, .06);
+    }
+    &:hover::-webkit-scrollbar {
+        display: block;
+    }
 }
 
 .menu-sidebar {
     margin-bottom: 8px;
 }
 
-.following {
-    &.following-content {
+.user {
+    &.user-content {
         font-size: 1.6rem;
         color: var(--color-secondary);
         line-height: 2.2rem;

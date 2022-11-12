@@ -1,5 +1,6 @@
 import classnames from 'classnames/bind';
 import { ListMenuMethods } from './listMenu';
+import PropTypes from 'prop-types';
 import styles from './MethodLogin.module.scss';
 import MethodLoginItem from './MethodLoginItem';
 import { IconClose } from '~/icon';
@@ -19,6 +20,9 @@ function MethodLoginModal({onClick}) {
             <div className={cx('footer')}>Bạn không có tài khoản? <a className={cx('footer-link')} href='/'> đắng ký</a></div>
         </div>
     );
-}
 
+}
+MethodLoginModal.prototype = {
+    onClick : PropTypes.func.isRequired,
+}
 export default MethodLoginModal;

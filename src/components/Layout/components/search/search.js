@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from 'react';
 import Tippy from '@tippyjs/react/headless';
 
 import styles from './Search.module.scss';
-import * as SearchServices from '~/Services/searchServices';
+import * as SearchServices from '~/Services/Api/searchServices';
 import { IconSearch, IconLoading, IconClear } from '~/icon';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';

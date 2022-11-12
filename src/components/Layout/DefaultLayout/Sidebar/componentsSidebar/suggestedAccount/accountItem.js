@@ -3,7 +3,6 @@ import styles from './suggestedAccount.module.scss';
 import SuggestedPreview from './SuggestedPreview';
 
 import PropStyle from 'prop-types';
-import Button from '~/components/Button';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import Image from '~/Images';
 import { IconCheckBlue } from '~/icon';

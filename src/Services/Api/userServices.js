@@ -14,3 +14,16 @@ export const getSuggested = async ({ page = 1, perPage = 1 }) => {
         // handle when have error
     }
 };
+export const getFlowingUsers = async ({ page = 1 }) => {
+    try {
+        const res = await Require.get(`me/followings`, {
+            params: {
+                page,
+            },
+        });
+
+        return res.data;
+    } catch (error) {
+        // handle when have error
+    }
+}

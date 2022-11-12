@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400;500;600;700&display=swap');
 
 :root {
+    --w-sidebar : 356px;
+    --hight-header : 60px;
     --color-white: #fff;
     --color-black: #000;
     --color-primary: rgba(254, 44, 85, 1);
@@ -68,4 +70,29 @@ body {
         line-height: 22px;
         background-color: rgba(84, 84, 84, 0.92);
     }
+}
+
+// custom class 
+.avatar {
+    border-radius: 50%;
+}
+.avatar-sm {
+    width: 32px;
+}
+.avatar-m{
+    width: 52px;
+    height: 52px;
+}
+
+.m-0{
+    margin: 0 !important;
+}
+.dis-block {
+    display: block !important;
+}
+.dis-none {
+    display: none !important;
+}
+.dis-flex{
+    display: flex!important;
 }

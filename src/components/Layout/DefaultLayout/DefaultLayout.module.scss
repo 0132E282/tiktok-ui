@@ -1,5 +1,17 @@
 .container {
+    background: rgba(255, 255, 255, 1);
+    width: 100%;
+    max-width:  1150px;
+    -webkit-justify-content: space-between;
+    margin: 60px auto 0;
     display: flex;
-    width: 1150px;
-    margin: auto;
+    justify-content: space-between;
+}
+.sidebar {
+    width: var(--w-sidebar);
+}
+.content{ 
+    width: 100%;
+    margin: 0 16px;
+    max-width: 692px;
 }
