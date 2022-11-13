@@ -1,15 +1,20 @@
 import classnames from "classnames/bind";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
-import style from './DivContainer.module.scss';
+import style from './RecommendVideo.module.scss';
 import routes from "~/config/routes";
 import { IconCheckBlue,IconComment,IconLike,  IconShare} from "~/icon";
 import Image from '~/Images';
 import Button from "../Button";
+import Modal from "../modal";
+import MethodLoginModal from "../modal/ListMenuItem/methodLogin/MethodLogin";
+import { ProviderServices } from "~/Services/provider/ProviderGlobal";
 const cx = classnames.bind(style);
 function DivContainer({ children , user , direction ,  likeCount , commentCount ,sharesCount}) {
    const [isLike , setIsLike ] = useState(false);
+   const [isModal,setIsModal] = useState(false);
+   const {isLogin } = useContext(ProviderServices);
     return (<div className={cx("wrapper","recommend-video")}>
        <Image className={cx("avatar avatar-m")} src={user.avatar} />
        <div className={cx("container")}>
@@ -65,6 +70,14 @@ function DivContainer({ children , user , direction ,  likeCount , commentCount 
             </div>
          </div>
        </div>
+       <Button small  className={cx('btn-follow')} content={'Follow'} onClick={(e)=>{
+         if(!isLogin){
+            setIsModal(true);
+         }
+       }}/>
+       <Modal isOpen={isModal }>
+            <MethodLoginModal onClick={()=>{setIsModal(false);}} />
+       </Modal>
     </div> );
 }
 

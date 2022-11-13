@@ -1,6 +1,6 @@
 import styles from './Sidebar.module.scss';
 import classnames from 'classnames/bind';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 
 import { IconHome, IconLive, IconFollowing } from '~/icon';
@@ -8,7 +8,11 @@ import configRoutes from '~/config/routes';
 import Menu, { ItemMenu } from './componentsSidebar/Menu';
 import SuggestedAccount from './componentsSidebar/suggestedAccount';
 import * as userServices from '~/Services/Api/userServices';
-const c = classnames.bind(styles);
+import { ProviderServices } from '~/Services/provider/ProviderGlobal';
+import Button from '~/components/Button';
+import Modal from '~/components/modal';
+import MethodLoginModal from '~/components/modal/ListMenuItem/methodLogin/MethodLogin';
+const cx = classnames.bind(styles);
 
 const INIT_PAGE = 1;
 const INIT_PER = 5;
@@ -20,7 +24,7 @@ function Sidebar() {
                 <IconHome
                     width={'3.2rem'}
                     height={'3.2rem'}
-                    className={c('icon-active')}
+                    className={cx('icon-active')}
                     color={'rgba(22, 24, 35, 1.0)'}
                 />
             ),
@@ -39,7 +43,9 @@ function Sidebar() {
     ];
     const [suggestedUser, setSuggestedUser] = useState([]);
     const [page, setPage] = useState(INIT_PAGE);
+    const [isModal,setIsModal] = useState(false);
     const renderMenuSidebar = () => {
+        
         return (
             <Menu>
                 {listMenuSidebar.map((Item, index) => {
@@ -60,28 +66,54 @@ function Sidebar() {
     }, [page]);
 
     const handleSeeAll = () => {
-        setPage(page + 1);
+        if(page <= 1){
+          setPage(page + 1);
+        }else{
+            setPage(INIT_PAGE);
+        }
     };
+    const {isLogin} = useContext(ProviderServices)
     return (
-        <div className={c('wrapper')}>
+        <div className={cx('wrapper')}>
             {renderMenuSidebar()}
-            <div className={c('user')}>
-                <SuggestedAccount
+            <div className={cx('user')}>
+                {isLogin ?  <SuggestedAccount
                     data={suggestedUser}
-                    title={'Tài khoản được đề xuất'}
-                    btnContentNext={'xem tat ca'}
+                    title={ 'Tài khoản được đề xuất'}
+                    btnContentNext={page <=1 ? 'xem tat ca' : 'Ẩn bớt'}
+                    onSeeAll={handleSeeAll}
+                 />: <div className={cx('not-login')}>
+                  <p className={cx('user-content')}>
+                     Đăng nhập để follow các tác giả, thích video và xem bình luận.
+                  </p>
+                   <Button  
+                        invadersW 
+                        className={'btn-sidebar_login'} 
+                        content={'đăng nhập'} 
+                        onClick={()=> !isLogin&&setIsModal(true)}
+                   />
+                 </div>
+                }
+                {isLogin ?  <SuggestedAccount
+                    data={suggestedUser}
+                    title={'tài khoản đã follow'}
+                    btnContentNext={'xem tất cả'}
+                    onSeeAll={handleSeeAll}
+                 />: 
+                  <SuggestedAccount
+                    data={suggestedUser}
+                    title={ 'Tài khoản được đề xuất'}
+                    btnContentNext={page <=1 ? 'xem tất cả' : 'Ẩn bớt'}
                     onSeeAll={handleSeeAll}
                  />
-                 <SuggestedAccount
-                    data={suggestedUser}
-                    title={'Các tài khoản đang follow'}
-                    btnContentNext={'Xem thêm'}
-                    onSeeAll={handleSeeAll}
-                 />
+                }
             </div>
-            <div className={c('suggestedUser')}>
+            <div className={cx('suggestedUser')}>
                
             </div>
+            <Modal isOpen={isModal }>
+                <MethodLoginModal onClick={()=>{setIsModal(false);}} />
+            </Modal>
         </div>
     );
 }

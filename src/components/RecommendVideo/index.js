@@ -1,5 +1,5 @@
 import classnames from "classnames/bind";
-import style from './DivContainer.module.scss';
+import style from './RecommendVideoItem';
 const cx = classnames.bind(style);
 function VideoList({children}) {
     return ( <div className={cx('rapper')}>

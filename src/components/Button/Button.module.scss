@@ -49,11 +49,10 @@
 }
 
 .small {
-    min-height: 28px;
+    height: 28px;
     padding: 0 10px;
     min-width: 88px;
 }
-
 .primary,
 .medium {
     min-width: 110px;
@@ -86,7 +85,7 @@
     color: var(--color-white);
     fill: var(--color-white);
     background-color: var(--color-primary);
-
+    box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
     &:hover {
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
     }

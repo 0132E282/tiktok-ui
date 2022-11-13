@@ -15,6 +15,7 @@ function Button({
     className,
     disabled,
     // size btn
+    invadersW,
     small,
     medium,
     primary,
@@ -45,6 +46,7 @@ function Button({
         primary,
         circle,
         disabled,
+        invadersW,
     }); // default , small , medium , large ...
     if (disabled) {
         Object.keys(Prop).forEach((key) => {

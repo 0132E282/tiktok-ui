@@ -12,7 +12,7 @@ function DefaultLayout({ children }) {
                   <Sidebar />
                 </div>
                 <div className={c('content')}>
-                 {children}
+                  {children}
                 </div>
             </div>
         </div>

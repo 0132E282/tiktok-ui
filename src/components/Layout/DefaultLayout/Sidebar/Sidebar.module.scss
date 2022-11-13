@@ -1,6 +1,6 @@
 .wrapper {
     width: var(--w-sidebar);
-    padding: 24px 12px 24px 8px;
+    padding: 24px 12px 26px 8px;
     position: fixed;
     top: 60px;
     bottom: 0;
@@ -27,23 +27,19 @@
 }
 
 .user {
-    &.user-content {
-        font-size: 1.6rem;
-        color: var(--color-secondary);
-        line-height: 2.2rem;
-        font-family: var(--font-primary);
-        font-weight: 500;
-    }
-
-    & .btn-sidebar_login {
-        border: 1px solid var(--color-primary);
-        color: var(--color-primary);
-        font-size: 1.8rem;
-        height: 44px;
-        margin-top: 20px;
-
-        &:hover {
-            background-color: #ffdde4;
+    & .not-login{
+        padding: 24px 12px 28px;
+        border-top: 1px solid #e1e2e3;
+        & .user-content {
+            font-size: 1.6rem;
+            color: #16182380;
+            line-height: 1.6;
+            font-family: var(--font-primary);
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        & .btn-sidebar_login{
+            margin-left: -10px;
         }
     }
 }
