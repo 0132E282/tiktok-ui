@@ -20,7 +20,6 @@ function Search() {
     const debounced = useDebounce(searchValue, 500);
     // sueRef
     const InputRef = useRef();
-
     // useEffect
     useEffect(() => {
         if (!debounced.trim()) {

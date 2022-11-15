@@ -9,7 +9,7 @@ import Header from './Header';
 import { IconBack } from '~/icon';
 const c = classnames.bind(styles);
 
-function Menu({ children, menuItem = [], hideOnClick = false, onChange, ...passProps }) {
+function Menu({ className , children, menuItem = [], hideOnClick = false, onChange,placement = 'top-end', ...passProps}) {
     const [history, setHistory] = useState([{ data: menuItem }]);
     //call
     const current = history[history.length - 1];
@@ -37,10 +37,10 @@ function Menu({ children, menuItem = [], hideOnClick = false, onChange, ...passP
             {...passProps}
             hideOnClick={hideOnClick}
             delay={[0, 500]}
-            placement={'top-end'}
+            placement = {placement}
             interactive={true}
             render={(attrs) => (
-                <div className={c('content')} tabIndex={-1} {...attrs}>
+                <div className={c('content',className)} tabIndex={-1} {...attrs}>
                     <PopperWrapper className={c('menu-wrapper')}>
                         {history.length > 1 && (
                             <Header

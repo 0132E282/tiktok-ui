@@ -26,10 +26,11 @@
     margin-bottom: 8px;
 }
 
-.user {
+.account-user {    
+    border-top: 1px solid #e1e2e3;
     & .not-login{
         padding: 24px 12px 28px;
-        border-top: 1px solid #e1e2e3;
+        border-bottom: 1px solid #e1e2e3;
         & .user-content {
             font-size: 1.6rem;
             color: #16182380;
@@ -44,6 +45,71 @@
     }
 }
 
-.content {
-    flex: 1;
+.sidebar-tag{
+    padding: 16px 8px;
+    border-top: 1px solid #e1e2e3;
+    & .sidebar-tag__heading{
+        color: var(--color-text-secondary);
+        font-size: 14px;
+        padding-bottom: 16px;
+        font-size: 600;
+        line-height: 1.6;
+    }
+   
+    & .container {
+        display: flex;
+        flex-wrap: wrap;
+     }
+}
+.tag-discover{
+   
+    box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+    background-color: rgb(255, 255, 255);
+    max-width: 100%;
+    & ~ .tag-discover{
+        margin:0 0 12px 8px;
+    }
+    .btn-tag{
+        max-width: 100%;
+        color: var(--color-text-secondary);
+        border-radius: 9999px;
+        border-color: rgba(22, 24, 35, 0.12);
+        
+        &:hover{
+            border-color: rgba(22, 24, 35, .2);
+            background-color: rgba(255, 255, 255, 1);
+        }
+    }
+}
+
+.footer{
+    border-top: 1px solid #e1e2e3;
+    padding: 16px 0 0 8px;
+}
+.menu{
+    display: flex;
+    line-height: 1.7rem;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    & .list-menu-item{
+        margin: 5px 8px 0 0;
+        color: rgba(22, 24, 35, .5);
+       font-size: 12px;
+       font-weight: 600;
+    }
+}
+.see-more__footer{
+    font-family: "IBM Plex Sans",ProximaNova,Arial,Tahoma,PingFangSC,sans-serif;
+    font-size: 12px;
+    color: rgba(22, 24, 35, 1);
+    cursor: pointer;
+    opacity: 0.7;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+.span_copyright{
+    display: inline-block;
+    color: rgba(22, 24, 35, .5);
+    font-size: 12px;
+    font-weight: 500;
 }

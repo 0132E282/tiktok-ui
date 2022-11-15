@@ -1,17 +1,40 @@
 import classnames from "classnames/bind";
-import { useContext, useState } from "react";
+import { memo, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
 import style from './RecommendVideo.module.scss';
 import routes from "~/config/routes";
-import { IconCheckBlue,IconComment,IconLike,  IconShare} from "~/icon";
+import { IconCheckBlue,IconComment,IconSend,IconFacebook,IconLike,IconTwitter,  IconLink,  IconShare, IconInstagram} from "~/icon";
 import Image from '~/Images';
 import Button from "../Button";
 import Modal from "../modal";
 import MethodLoginModal from "../modal/ListMenuItem/methodLogin/MethodLogin";
 import { ProviderServices } from "~/Services/provider/ProviderGlobal";
+import Menu from "../Popper/Menu";
+const LIST_METHOD_SHARE = [
+   {
+      icon : <IconLink/>,
+      title : 'nhúng'
+   },
+   {
+      icon : <IconSend/>,
+      title : 'gữi cho bạn bè'
+   },
+   {
+      icon : <IconFacebook width={'2.6rem'} height={'2.6rem'} />,
+      title : 'Chia sẻ với Facebook'
+   },
+   {
+      icon : <IconTwitter width={'2.6rem'} height={'2.6rem'}/>,
+      title : 'Chia sẻ với Twitter'
+   },
+   {
+      icon : <IconInstagram width={'2.6rem'} height={'2.6rem'} />,
+      title : 'Chia sẻ với Instagram'
+   }
+]
 const cx = classnames.bind(style);
-function DivContainer({ children , user , direction ,  likeCount , commentCount ,sharesCount}) {
+function RecommendVideoItem({ children , user , direction ,  likeCount , commentCount ,sharesCount}) {
    const [isLike , setIsLike ] = useState(false);
    const [isModal,setIsModal] = useState(false);
    const {isLogin } = useContext(ProviderServices);
@@ -34,9 +57,7 @@ function DivContainer({ children , user , direction ,  likeCount , commentCount 
                  {direction}
                </p>
                <a href="/#" className={cx("video-music")}>
-               <span className={cx("video-music__icon")}>
-                  <i class="fas fa-music"></i>
-               </span>
+               
                   nhạc nền - LE QUYEN
                </a>
          </div>
@@ -45,28 +66,30 @@ function DivContainer({ children , user , direction ,  likeCount , commentCount 
                {children}
             </div>
             <div className={cx("video-wrapper__action")}>
-               <ul className={cx("video-wrapper__action-list")}>
-               <li className={cx("action-list_item")}>
-                  <div className={cx("action-list_item--icon")}>
-                     <Button  icon={<IconLike className={cx({'like' : isLike})}/>} onClick={e => {
-                     isLike ? setIsLike(false) : setIsLike(true);
-                     }}/> 
-                  </div> 
-                  <p className={cx('action-list_item--text')}>{likeCount}</p>
-               </li>
-               <li className={cx("action-list_item")}> 
-                  <div className={cx("action-list_item--icon")}> 
-                     <Link to={"/"}><IconComment  className={cx("link")}/></Link>
+               <div className={cx("video-wrapper__action-list")}>
+                  <div className={cx("action-list_item")}>
+                     <div className={cx("action-list_item--icon")}>
+                        <Button  icon={<IconLike className={cx({'like' : isLike})}/>} onClick={e => {
+                        isLike ? setIsLike(false) : setIsLike(true);
+                        }}/> 
+                     </div> 
+                     <p className={cx('action-list_item--text')}>{likeCount}</p>
                   </div>
-                  <p className={cx('action-list_item--text')}>{commentCount}</p>
-               </li>
-               <li className={cx("action-list_item")}> 
-                  <div className={cx("action-list_item--icon")}> 
-                     <IconShare/>
+                  <div className={cx("action-list_item")}> 
+                     <div className={cx("action-list_item--icon")}> 
+                        <Link to={"/"}><IconComment  className={cx("link")}/></Link>
+                     </div>
+                     <p className={cx('action-list_item--text')}>{commentCount}</p>
                   </div>
-                  <p className={cx('action-list_item--text')}>{sharesCount}</p>
-               </li>
-               </ul>
+                  <div className={cx("action-list_item")}> 
+                     <Menu className={cx('menu_method-share')} placement={'top-start'} menuItem={LIST_METHOD_SHARE}  hideOnClick={true}>
+                        <div className={cx("action-list_item--icon")}> 
+                           <IconShare/>
+                        </div>
+                     </Menu>
+                     <p className={cx('action-list_item--text')}>{sharesCount}</p>
+                  </div>
+               </div>
             </div>
          </div>
        </div>
@@ -75,10 +98,11 @@ function DivContainer({ children , user , direction ,  likeCount , commentCount 
             setIsModal(true);
          }
        }}/>
+      
        <Modal isOpen={isModal }>
             <MethodLoginModal onClick={()=>{setIsModal(false);}} />
        </Modal>
     </div> );
 }
 
-export default DivContainer;
+export default memo(RecommendVideoItem);

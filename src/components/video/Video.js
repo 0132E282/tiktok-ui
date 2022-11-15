@@ -6,6 +6,8 @@ import {IconVolume ,IconPause ,IconPlay , IconMuted,  } from "~/icon";
 import video from "~/assets/video";
 import Button from "../Button";
 import { ProviderServices } from "~/Services/provider/ProviderGlobal";
+import { useDebounce } from "~/hooks";
+import { memo } from "react";
 const cx = classnames.bind(style);
 function Video({id, video_rul }) {
     const mutedRef = useRef();
@@ -20,6 +22,8 @@ function Video({id, video_rul }) {
     const [isSeekbar , setIsSeekBar] = useState(true);
     const [historyVideo, setHistoryVideo] = useState((res)=>res)
     const {playingVideo } = useContext(ProviderServices);
+    const debouncedVideoPlaying = useDebounce(playingVideo, 100);
+    
     const handleUpdateSeekBar = (e) => {
       if(e.target.duration && isPlayVideo ){
         if(timeLine.current){
@@ -46,9 +50,9 @@ function Video({id, video_rul }) {
    }
    
     useEffect(()=>{
-       if(playingVideo !== undefined && playingVideo !== null){
-            const video = playingVideo.querySelector('video');
-            if(playingVideo.classList.contains('playing')){
+       if(debouncedVideoPlaying !== undefined && debouncedVideoPlaying !== null){
+            const video = debouncedVideoPlaying.querySelector('video');
+            if(debouncedVideoPlaying.classList.contains('playing')){
                 if(historyVideo !== undefined &&historyVideo !== null){
                   historyVideo.pause();
                 }
@@ -56,7 +60,7 @@ function Video({id, video_rul }) {
                 setHistoryVideo(video);
             }
        }
-    },[playingVideo,historyVideo]);
+    },[debouncedVideoPlaying,historyVideo]);
     return (<div className={cx("video-wrapper")}>
     <div className={cx("video-wrapper__container")} >
       <video ref={videoRef} src={video_rul ||video.videoDefaults } 
@@ -119,4 +123,4 @@ function Video({id, video_rul }) {
 </div>);
 }
 
-export default Video;
+export default memo(Video);
