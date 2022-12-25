@@ -1,84 +1,70 @@
 import classnames from "classnames/bind";
-import { useCallback,  useContext,  useEffect, useMemo, useRef , useState ,} from "react";
+import {  useRef , useState ,forwardRef,useImperativeHandle} from "react";
 
 import style from './Video.module.scss';
 import {IconVolume ,IconPause ,IconPlay , IconMuted,  } from "~/icon";
 import video from "~/assets/video";
 import Button from "../Button";
-import { ProviderServices } from "~/Services/provider/ProviderGlobal";
-import { useDebounce } from "~/hooks";
-import { memo } from "react";
+import { useEffect } from "react";
+
 const cx = classnames.bind(style);
-function Video({id, video_rul }) {
-    const mutedRef = useRef();
-    const videoRef = useRef();
-    const timeLine = useRef();
-    const seekBarRef = useRef();
-    const [isMutedVideo, setMutedVideo] = useState(false);
-    const [isPlayVideo ,setPlayVideo] = useState(false);
-    const [TimeSeekBar, setTimeSeekBar] = useState(0);
-    const [valueVolume , setValueVolume] = useState(100);
-    const [durationVideo, setDurationVideo] = useState(0);
-    const [isSeekbar , setIsSeekBar] = useState(true);
-    const [historyVideo, setHistoryVideo] = useState((res)=>res)
-    const {playingVideo } = useContext(ProviderServices);
-    const debouncedVideoPlaying = useDebounce(playingVideo, 100);
-    
-    const handleUpdateSeekBar = (e) => {
+function Video({ video_rul },ref) {
+  const mutedRef = useRef();
+  const videoRef = useRef();
+  const timeLine = useRef();
+  const seekBarRef = useRef();
+  const [isMutedVideo, setMutedVideo] = useState(false);
+  const [isPlayVideo ,setPlayVideo] = useState(false);
+  const [TimeSeekBar, setTimeSeekBar] = useState(0);
+  const [valueVolume , setValueVolume] = useState(100);
+  const [durationVideo, setDurationVideo] = useState(0);
+  const [isSeekbar , setIsSeekBar] = useState(true);
+
+   const handleUpdateSeekBar = (e) => {
       if(e.target.duration && isPlayVideo ){
         if(timeLine.current){
             const time = (100 / e.target.duration) * e.target.currentTime;
             timeLine.current.style.width = (time + "%");
         }
-      setTimeSeekBar(e.target.currentTime);
-       e.target.loop =true;
+       setTimeSeekBar(e.target.currentTime);
      }
    };
    const handleOnclickVideo = e =>{
-      if(!isPlayVideo){
-        videoRef.current.play();
-      }else{
-        videoRef.current.pause();
-      }
-   }
+      const video = document.querySelector('.recommend-video.playing video');
+      !isPlayVideo ? video.play() : video.pause();
+    }
    const timeVideo =  (time)=> {
     let minute = Math.floor(time / 60);
     let seconds = time % 60;
-    return (
-        <span>{ minute > 0 && minute + ':'} {Math.floor(seconds) < 10 ? `0${Math.floor(seconds)}`:Math.floor(seconds)} </span>
-    ); 
+    return<span>{ minute > 0 && minute + ':'} {Math.floor(seconds) < 10 ? `0${Math.floor(seconds)}`:Math.floor(seconds)} </span>
    }
-   
-    useEffect(()=>{
-       if(debouncedVideoPlaying !== undefined && debouncedVideoPlaying !== null){
-            const video = debouncedVideoPlaying.querySelector('video');
-            if(debouncedVideoPlaying.classList.contains('playing')){
-                if(historyVideo !== undefined &&historyVideo !== null){
-                  historyVideo.pause();
-                }
-                video.play();
-                setHistoryVideo(video);
-            }
-       }
-    },[debouncedVideoPlaying,historyVideo]);
+   useImperativeHandle(ref,()=>({
+     videoItem (){
+         return videoRef &&  videoRef.current.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+     },
+     play(){
+      videoRef && videoRef.current.play();
+     },
+     pause(){
+      videoRef && videoRef.current.pause();
+     }
+   }))
+
     return (<div className={cx("video-wrapper")}>
     <div className={cx("video-wrapper__container")} >
-      <video ref={videoRef} src={video_rul ||video.videoDefaults } 
+      <video ref={videoRef} src={video_rul || video.videoDefaults } 
         onPlaying={(e)=>{
           setDurationVideo(e.target.duration);
           setPlayVideo(true);
-        }}
-        onCanPlay={()=>{
-          const video = playingVideo.querySelector('video');
-          video.play();
-          setHistoryVideo(video);
         }}
         onPause={()=>{
           setPlayVideo(false);
           setDurationVideo(0);
         }}
         onTimeUpdate= {handleUpdateSeekBar}
-        loop ={true} >
+        loop ={true}
+        muted={false}
+      >
       </video>
       <div className={cx("video__container--controller")}>
          <div className={cx("controller__button")}>
@@ -95,7 +81,7 @@ function Video({id, video_rul }) {
                       // take the current value volume
                       videoRef.current.volume = valueVolume / 100 ;
                       setValueVolume(e.target.value);
-                      e.target.value  < 1 ?   setMutedVideo(true) : setMutedVideo(false);
+                      e.target.value  < 1 ? setMutedVideo(true) : setMutedVideo(false);
                      }}
                   />
                 </div>
@@ -123,4 +109,4 @@ function Video({id, video_rul }) {
 </div>);
 }
 
-export default memo(Video);
+export default forwardRef(Video) ;

@@ -56,7 +56,7 @@ function Button({
         });
     }
     return (
-        <TypeBtn className={classes} onClick {...Prop}>
+        <TypeBtn disabled={disabled} className={classes} onClick {...Prop}>
             {iconLeft && <span className={c('icon-left')}>{iconLeft}</span>}
              {content ? <span className={c("content")}>{content }</span> : icon} 
             {iconRight && <span className={c('icon-right')}>{iconRight}</span>}

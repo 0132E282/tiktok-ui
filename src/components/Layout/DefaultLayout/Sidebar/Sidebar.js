@@ -79,6 +79,7 @@ const listMenuSidebar = [
 ];
 function Sidebar() {    
     const [suggestedUser, setSuggestedUser] = useState([]);
+    const [followingUser , setFollowingUser] = useState([]);
     const [page, setPage] = useState(INIT_PAGE);
     const [isModal,setIsModal] = useState(false);
     const renderMenuSidebar = () => {
@@ -99,8 +100,15 @@ function Sidebar() {
             .catch((err) => {
                 console.log(err);
             });
-    }, [page]);
 
+    }, [page]);
+    useEffect(()=>{
+        userServices.getFlowingUsers({page : 1}) 
+        .then((res)=>{
+            res && setFollowingUser(prevUser=> [...prevUser,...res])
+        })
+        .catch((err)=>console.log(err))
+    },[])
     const handleSeeAll = () => {
         if(page <= 1){
           setPage(page + 1);
@@ -108,14 +116,14 @@ function Sidebar() {
             setPage(INIT_PAGE);
         }
     };
-    const {isLogin} = useContext(ProviderServices)
+    const {infoAccount} = useContext(ProviderServices)
     return (
         <div className={cx('wrapper')}>
              <div className={cx("menu-sidebar")}>
                 {renderMenuSidebar()}
              </div>
              <div className={cx("account-user")}>
-                {isLogin ?  <SuggestedAccount
+                {infoAccount ?  <SuggestedAccount
                         data={suggestedUser}
                         title={ 'Tài khoản được đề xuất'}
                         btnContentNext={page <=1 ? 'xem tat ca' : 'Ẩn bớt'}
@@ -128,11 +136,11 @@ function Sidebar() {
                                 invadersW 
                                 className={'btn-sidebar_login'} 
                                 content={'đăng nhập'} 
-                                onClick={()=> !isLogin&&setIsModal(true)}
+                                onClick={()=> !infoAccount&&setIsModal(true)}
                         />
                     </div>}
-                {isLogin ?  <SuggestedAccount
-                    data={suggestedUser}
+                {infoAccount ?  <SuggestedAccount
+                    data={followingUser}
                     title={'tài khoản đã follow'}
                     btnContentNext={'xem tất cả'}
                     onSeeAll={handleSeeAll}

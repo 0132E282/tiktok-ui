@@ -1,0 +1,9 @@
+.wrapper {
+    padding: 24px 0 ;
+}
+.user-nomination{
+    display: grid;
+    grid-template-columns: 33.33333%  33.33333% 33.33333%;
+    column-gap: 18px;
+    row-gap: 18px;
+}

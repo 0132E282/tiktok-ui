@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
@@ -20,11 +20,11 @@ import {
     IconMessage,
 } from '~/icon';
 import { MENU_ITEM , userMenu } from '~/components/Popper/Menu/ListMenuItem';
+import { ProviderServices } from '~/Services/provider/ProviderGlobal';
 const c = classNames.bind(styles);
 
-const isLogin = false;
-
 function Header() {
+    const {infoAccount} = useContext(ProviderServices);
     const [isModal, setIsModal] = useState(false);
     const handleMenuChanges = (menuItem) => {
         console.log(menuItem);
@@ -42,7 +42,7 @@ function Header() {
                 </div>
                 <Search />
                 <div className={c('user')}>
-                    {isLogin ? (
+                    {infoAccount ? (
                         <>
                             <Button medium iconLeft={<IconAdd color="#161823" />} content={'tải lên'} />
                             <Tippy interactive={true} content={'Thông Báo'}>
@@ -56,12 +56,10 @@ function Header() {
                                 </button>
                             </Tippy>
 
-                            <Menu onChange={handleMenuChanges} menuItem={isLogin ? userMenu : MENU_ITEM}>
+                            <Menu onChange={handleMenuChanges} menuItem={infoAccount ? userMenu : MENU_ITEM}>
                                 <button className={c('btn-setting')}>
                                     <Image
-                                        src={
-                                            'https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/fac92301a36c2275c99f393061ef04ca~c5_100x100.jpeg?x-expires=1658937600&x-signature=cBqjUB51n%2BRTrWWXBJj7Rjl7dJ4%3D'
-                                        }
+                                        src={infoAccount.avatar}
                                         width={'32px'}
                                         height={'32px'}
                                         className={c('avatar-user')}

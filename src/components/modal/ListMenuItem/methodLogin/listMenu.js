@@ -3,10 +3,12 @@ export const ListMenuMethods = [
     {
         title: 'Sử dụng mã QR',
         icon: <IconQR  width={'2rem'} height={'2rem'}/>,
+        action : ''
     },
     {
         title: 'Số điện thoại / Email / TikTok ID ',
         icon: <IconUserSingle  width={'2rem'} height={'2rem'}/>,
+        action : 'LOGION-ACCOUNT'
     },
     {
         title: 'Tiếp tục với Facebook',

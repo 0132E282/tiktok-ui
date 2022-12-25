@@ -926,3 +926,65 @@ export const IconSend= ({ className, width = '2.6rem', height = '2.6rem' }) => {
        </path>
     </svg>);
 };
+export const IconDow1= ({ className, width = '1.4rem', height = '1.4rem' }) => {
+    return (
+        <svg
+            className={className}
+            width={width}
+            height={height}
+            viewBox="0 0 48 48"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+      <path 
+            fillRule="evenodd" 
+            clipRule="evenodd" 
+            d="M25.5187 35.2284C24.7205 36.1596 23.2798 36.1596 22.4816 35.2284L8.83008 19.3016C7.71807 18.0042 8.63988 16 10.3486 16H37.6517C39.3604 16 40.2822 18.0042 39.1702 19.3016L25.5187 35.2284Z">
+      </path>
+    </svg>);
+};
+export const IconClosedEyes= ({ className, width = '2rem', height = '2rem' }) => {
+    return (
+        <svg
+            className={className}
+            width={width}
+            height={height}
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+      <g stroke="#161823" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+        strokeMiterlimit="10" 
+        strokeWidth="1.5" 
+        opacity="0.5"
+      >
+       <path
+         d="M2.8 7.8c2.1 1 4.5 1.6 7 1.6s4.9-.6 7-1.6M9.8 9.8v3M5.1 9.2l-1.5 2.6M14.6 9.2l1.5 2.6">
+        </path>
+       </g>
+    </svg>);
+};
+export const IconEyes= ({ className, width = '2rem', height = '2rem' }) => {
+    return (
+        <svg
+            className={className}
+            width={width}
+            height={height}
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+     <g 
+        stroke="#161823" 
+        strokeLinecap="round"
+        strokeLinejoin="round" 
+        strokeMiterlimit="10" 
+        strokeWidth="1.5" 
+        opacity="0.5">
+        <path d="M9.8 4.8c3 0 5.3 1.7 7 5-1.7 3.3-4 5-7 5s-5.3-1.7-7-5c1.6-3.4 4-5 7-5z"></path>
+        <path d="M9.8 11.8a2 2 0 100-4 2 2 0 000 4z"></path>
+     </g>
+    </svg>);
+};

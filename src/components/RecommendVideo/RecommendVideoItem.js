@@ -33,8 +33,9 @@ const LIST_METHOD_SHARE = [
       title : 'Chia sẻ với Instagram'
    }
 ]
+
 const cx = classnames.bind(style);
-function RecommendVideoItem({ children , user , direction ,  likeCount , commentCount ,sharesCount}) {
+function RecommendVideoItem({ children , user ,video}) {
    const [isLike , setIsLike ] = useState(false);
    const [isModal,setIsModal] = useState(false);
    const {isLogin } = useContext(ProviderServices);
@@ -54,10 +55,9 @@ function RecommendVideoItem({ children , user , direction ,  likeCount , comment
                   </Link>
                </div>
                <p className={cx("info-user__description")}>
-                 {direction}
+                 {video.direction}
                </p>
                <a href="/#" className={cx("video-music")}>
-               
                   nhạc nền - LE QUYEN
                </a>
          </div>
@@ -70,16 +70,16 @@ function RecommendVideoItem({ children , user , direction ,  likeCount , comment
                   <div className={cx("action-list_item")}>
                      <div className={cx("action-list_item--icon")}>
                         <Button  icon={<IconLike className={cx({'like' : isLike})}/>} onClick={e => {
-                        isLike ? setIsLike(false) : setIsLike(true);
+                           isLike ? setIsLike(false) : setIsLike(true);
                         }}/> 
                      </div> 
-                     <p className={cx('action-list_item--text')}>{likeCount}</p>
+                     <p className={cx('action-list_item--text')}>{video.likeCount}</p>
                   </div>
                   <div className={cx("action-list_item")}> 
                      <div className={cx("action-list_item--icon")}> 
                         <Link to={"/"}><IconComment  className={cx("link")}/></Link>
                      </div>
-                     <p className={cx('action-list_item--text')}>{commentCount}</p>
+                     <p className={cx('action-list_item--text')}>{video.commentCount}</p>
                   </div>
                   <div className={cx("action-list_item")}> 
                      <Menu className={cx('menu_method-share')} placement={'top-start'} menuItem={LIST_METHOD_SHARE}  hideOnClick={true}>
@@ -87,7 +87,7 @@ function RecommendVideoItem({ children , user , direction ,  likeCount , comment
                            <IconShare/>
                         </div>
                      </Menu>
-                     <p className={cx('action-list_item--text')}>{sharesCount}</p>
+                     <p className={cx('action-list_item--text')}>{video.sharesCount}</p>
                   </div>
                </div>
             </div>
