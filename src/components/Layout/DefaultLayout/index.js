@@ -8,12 +8,10 @@ function DefaultLayout({ children }) {
         <div className={c('wrapper')}>
             <Header />
             <div className={c('container')}>
-                <div  className={c('sidebar')}>
-                  <Sidebar />
+                <div className={c('sidebar')}>
+                    <Sidebar />
                 </div>
-                <div className={c('content')}>
-                  {children}
-                </div>
+                <div className={c('content')}>{children}</div>
             </div>
         </div>
     );

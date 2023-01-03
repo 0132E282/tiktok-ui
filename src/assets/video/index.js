@@ -1,4 +1,4 @@
 const video = {
-    videoDefaults : require("./tải xuống.mp4")
-}
+    videoDefaults: require('./tải xuống.mp4'),
+};
 export default video;

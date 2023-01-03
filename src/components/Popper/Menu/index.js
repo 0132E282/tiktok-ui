@@ -7,9 +7,19 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import MenuItem from './MenuItem';
 import Header from './Header';
 import { IconBack } from '~/icon';
+import { useDispatch } from 'react-redux';
 const c = classnames.bind(styles);
 
-function Menu({ className , children, menuItem = [], hideOnClick = false, onChange,placement = 'top-end', ...passProps}) {
+function Menu({
+    className,
+    children,
+    menuItem = [],
+    hideOnClick = false,
+    onChange,
+    placement = 'top-end',
+    ...passProps
+}) {
+    const dispatch = useDispatch();
     const [history, setHistory] = useState([{ data: menuItem }]);
     //call
     const current = history[history.length - 1];
@@ -21,11 +31,12 @@ function Menu({ className , children, menuItem = [], hideOnClick = false, onChan
                     key={index}
                     data={item}
                     onClick={() => {
-                        // handle when there is children 
+                        // handle when there is children
                         if (isChildren) {
                             setHistory((prev) => [...prev, item.children]);
-                        } else {
-                            onChange(item);
+                        }
+                        if (item.action) {
+                            dispatch(item.action());
                         }
                     }}
                 />
@@ -37,10 +48,10 @@ function Menu({ className , children, menuItem = [], hideOnClick = false, onChan
             {...passProps}
             hideOnClick={hideOnClick}
             delay={[0, 500]}
-            placement = {placement}
+            placement={placement}
             interactive={true}
             render={(attrs) => (
-                <div className={c('content',className)} tabIndex={-1} {...attrs}>
+                <div className={c('content', className)} tabIndex={-1} {...attrs}>
                     <PopperWrapper className={c('menu-wrapper')}>
                         {history.length > 1 && (
                             <Header

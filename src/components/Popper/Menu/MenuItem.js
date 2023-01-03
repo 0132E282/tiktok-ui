@@ -7,7 +7,7 @@ function MenuItem({ data, onClick }) {
     const classes = c('menu-item', {
         separate: data.separate,
     });
-    return <Button className={classes} iconLeft={data.icon} content={data.title} onClick={onClick} />;
+    return <Button to={data.to} className={classes} iconLeft={data.icon} content={data.title} onClick={onClick} />;
 }
 
 export default MenuItem;

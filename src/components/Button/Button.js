@@ -20,6 +20,8 @@ function Button({
     medium,
     primary,
     circle,
+    // background
+    btnPrimary,
     ...PropPass
 }) {
     let TypeBtn = 'button';
@@ -47,6 +49,7 @@ function Button({
         circle,
         disabled,
         invadersW,
+        btnPrimary,
     }); // default , small , medium , large ...
     if (disabled) {
         Object.keys(Prop).forEach((key) => {
@@ -58,7 +61,7 @@ function Button({
     return (
         <TypeBtn disabled={disabled} className={classes} onClick {...Prop}>
             {iconLeft && <span className={c('icon-left')}>{iconLeft}</span>}
-             {content ? <span className={c("content")}>{content }</span> : icon} 
+            {content ? <span className={c('content')}>{content}</span> : icon}
             {iconRight && <span className={c('icon-right')}>{iconRight}</span>}
         </TypeBtn>
     );

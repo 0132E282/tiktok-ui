@@ -1,9 +1,9 @@
-.wrapper{
+.wrapper {
     width: 100%;
     padding: 24px 0;
-    position: relative;   
+    position: relative;
 }
-.controller{
+.controller {
     position: fixed;
     bottom: 8px;
     right: 24px;
@@ -12,18 +12,18 @@
     justify-content: center;
     flex-direction: column;
     z-index: 9;
-    & .btn-download{
+    & .btn-download {
         margin-bottom: 12px;
-        color: rgba(22, 24, 35, .75);
+        color: rgba(22, 24, 35, 0.75);
         font-weight: 700;
         font-size: 14px;
         text-align: center;
         box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
-        border-color: rgba(22, 24, 35, .12);
+        border-color: rgba(22, 24, 35, 0.12);
         background-color: rgba(255, 255, 255, 1);
         border-radius: 11111111px;
-        &:hover{
-            border-color: rgba(22, 24, 35, .2);
+        &:hover {
+            border-color: rgba(22, 24, 35, 0.2);
             background-color: rgba(255, 255, 255, 1);
         }
     }

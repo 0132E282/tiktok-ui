@@ -2,7 +2,7 @@ import Home from '~/Page/Home';
 import Following from '~/Page/Following';
 import Upload from '~/Page/Upload';
 import profile from '~/Page/profile';
-import { HeaderOnly } from '~/components/Layout';
+import { HeaderOnly, LayoutFull } from '~/components/Layout';
 import routesConfig from '~/config/routes';
 // contains the page not login
 const publicRoute = [
@@ -22,6 +22,7 @@ const publicRoute = [
     {
         path: routesConfig.profile,
         component: profile,
+        layout: LayoutFull,
     },
 ];
 // contains the page has login

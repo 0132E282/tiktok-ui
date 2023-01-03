@@ -10,8 +10,8 @@
     user-select: none !important;
     color: var(--color-text-primary);
     border: none;
-    & .content{
-        text-overflow:ellipsis;
+    & .content {
+        text-overflow: ellipsis;
         overflow: hidden;
         word-break: normal;
         white-space: nowrap;
@@ -43,20 +43,27 @@
     }
 }
 
-.small,
-.invadersW {
+.small {
+    color: rgb(22, 24, 35);
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    background-color: rgb(255, 255, 255);
+    height: 28px;
+    padding: 0 10px;
+    min-width: 88px;
+    &:hover {
+        border-color: rgb(208, 209, 211);
+        background-color: rgb(248, 248, 248);
+    }
+}
+.invadersW,
+.btnPrimary {
     border: 1px solid var(--color-primary);
     color: var(--color-primary);
 
     &:hover {
+        border: 1px solid var(--color-primary);
         background-color: rgba(254, 44, 85, 0.06);
     }
-}
-
-.small {
-    height: 28px;
-    padding: 0 10px;
-    min-width: 88px;
 }
 .primary,
 .medium {

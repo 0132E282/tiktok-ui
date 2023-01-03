@@ -1,17 +1,17 @@
-.video-wrapper__container{
+.video-wrapper__container {
     margin-right: 20px;
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
     position: relative;
     height: calc(450px + (100vw - 768px) / 1152 * 100);
-    &:hover .controller__button .btn__play-pause{
+    &:hover .controller__button .btn__play-pause {
         display: flex;
     }
     &:hover .video-volume {
         display: block;
     }
-    &:hover .controller__seekBar{
+    &:hover .controller__seekBar {
         display: flex;
     }
     & video {
@@ -19,35 +19,35 @@
         display: block;
         width: 100%;
         height: 100%;
-        &:hover .video__container--controller{
+        &:hover .video__container--controller {
             display: block;
         }
     }
 }
-.video__container--controller{
+.video__container--controller {
     position: absolute;
     bottom: 12px;
     right: 0;
     left: 0;
-    & .controller__button{
+    & .controller__button {
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin: 0 20px;
-        & .btn__play-pause{
+        & .btn__play-pause {
             display: none;
         }
     }
 }
-.video-volume{
+.video-volume {
     position: relative;
     max-width: 40px;
     display: none;
-    &:hover .video-volume__controller{
+    &:hover .video-volume__controller {
         display: flex;
     }
 }
-.video-volume__controller{
+.video-volume__controller {
     position: absolute;
     transform: rotate(-90deg) translateY(-20%);
     background: rgba(22, 24, 35, 0.34);
@@ -63,7 +63,7 @@
     width: 64px;
     margin: -50% 0 0 0;
     & input {
-        -webkit-appearance: none; 
+        -webkit-appearance: none;
         appearance: none;
         background: #fff;
         height: 2px;
@@ -79,19 +79,19 @@
         border-radius: 50%;
     }
 }
-.controller__seekBar{
+.controller__seekBar {
     display: none;
     align-items: center;
     justify-content: space-between;
     height: 16px;
     padding: 0 12px;
-    & .seekBar-range{
+    & .seekBar-range {
         flex: 1;
         height: 4px;
         margin-right: 8px;
         position: relative;
         background-color: rgba(255, 255, 255, 0.241);
-       
+
         & input {
             position: absolute;
             top: 0;
@@ -113,7 +113,7 @@
             cursor: pointer;
             transition: all 0.2s ease-in;
         }
-        &:hover input::-webkit-slider-thumb  {
+        &:hover input::-webkit-slider-thumb {
             height: 12px;
             width: 12px;
             border-radius: 50%;
@@ -126,7 +126,7 @@
             display: block;
         }
     }
-    .seekBar__duration{
+    .seekBar__duration {
         font-size: 10px;
         color: #fff;
     }

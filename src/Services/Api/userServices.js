@@ -14,28 +14,40 @@ export const getSuggested = async ({ page = 1, perPage = 12 }) => {
         // handle when have error
     }
 };
+export const getAnUser = async ({ nickname }) => {
+    // try catch https://www.w3schools.com/js/js_errors.asp
+    try {
+        const res = await Req.get(`users/@${nickname}`);
+        return res.data;
+    } catch (error) {
+        // handle when have error
+    }
+};
 export const getFlowingUsers = async ({ page = 1 }) => {
     try {
+        const currentToKen = localStorage.getItem('success_token');
         const res = await Req.get(`me/followings`, {
             param: {
                 page,
             },
+            headers: { Authorization: `Bearer ${currentToKen}` },
         });
 
         return res.data;
     } catch (error) {
         // handle when have error
     }
-}
-export const postLogin = async ({email,password }) => {
+};
+
+export const postLogin = async ({ email, password }) => {
     try {
-        const res = await Req.post('auth/login',{ 
+        const res = await Req.post('auth/login', {
             email,
-            password
+            password,
         });
 
-        return res.data;
+        return res;
     } catch (error) {
         // handle when have error
     }
-}
+};

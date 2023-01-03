@@ -1,13 +1,6 @@
-import {
-    IconLanguages,
-    IconSetting,
-    IconShortcuts,
-    IconHelp,
-    IconUser,
-    IconCoin,
-    IconLogout,
-} from '~/icon';
- export const MENU_ITEM = [
+import { authAction } from '~/auth/authSilce';
+import { IconLanguages, IconSetting, IconShortcuts, IconHelp, IconUser, IconCoin, IconLogout } from '~/icon';
+export const MENU_ITEM = [
     {
         title: 'Tiếng Việt',
         icon: <IconLanguages color={'#161823'} />,
@@ -40,6 +33,7 @@ export const userMenu = [
     {
         title: 'trang cá nhân',
         icon: <IconUser color={'#161823'} width={'2rem'} height={'2rem'} />,
+        to: '/@hoangphuc01975',
     },
     {
         title: 'nhận xu',
@@ -54,5 +48,6 @@ export const userMenu = [
         separate: true,
         title: 'đăng xuất',
         icon: <IconLogout />,
+        action: authAction.logout,
     },
 ];
