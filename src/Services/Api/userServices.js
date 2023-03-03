@@ -14,10 +14,17 @@ export const getSuggested = async ({ page = 1, perPage = 12 }) => {
         // handle when have error
     }
 };
-export const getAnUser = async ({ nickname }) => {
+export const getAnUser = async ({ nickname, currentToKen }) => {
     // try catch https://www.w3schools.com/js/js_errors.asp
     try {
-        const res = await Req.get(`users/@${nickname}`);
+        const res = await Req.get(`users/@${nickname}`, {
+            params: { nickname },
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+                Authorization: `Bearer ${currentToKen}`,
+            },
+        });
         return res.data;
     } catch (error) {
         // handle when have error
@@ -30,9 +37,12 @@ export const getFlowingUsers = async ({ page = 1 }) => {
             param: {
                 page,
             },
-            headers: { Authorization: `Bearer ${currentToKen}` },
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+                Authorization: `Bearer ${currentToKen}`,
+            },
         });
-
         return res.data;
     } catch (error) {
         // handle when have error

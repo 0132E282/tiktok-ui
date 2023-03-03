@@ -93,6 +93,7 @@ function Sidebar({ className }) {
     const [suggestedUser, setSuggestedUser] = useState([]);
     const [followingUser, setFollowingUser] = useState([]);
     const [page, setPage] = useState(INIT_PAGE);
+    const currentUser = useSelector((state) => state.auth.currentUser);
     const [isModal, setIsModal] = useState(false);
     const renderMenuSidebar = () => {
         return (
@@ -120,7 +121,7 @@ function Sidebar({ className }) {
                 res && setFollowingUser((prevUser) => [...prevUser, ...res]);
             })
             .catch((err) => console.log(err));
-    }, []);
+    }, [currentUser]);
     const handleSeeAll = () => {
         if (page <= 1) {
             setPage(page + 1);

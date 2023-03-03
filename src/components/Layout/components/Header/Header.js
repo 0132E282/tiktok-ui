@@ -12,21 +12,16 @@ import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import Image from '~/Images';
 import { Link } from 'react-router-dom';
-import * as auth from '~/Services/Api/auth';
 import routesConfig from '~/config/routes';
 import { IconAdd, IconListMenu, IconNotifications, IconMessage } from '~/icon';
 import { MENU_ITEM, userMenu } from '~/components/Popper/Menu/ListMenuItem';
 import { useSelector } from 'react-redux';
+import { ProviderServices } from '~/Services/provider/ProviderGlobal';
+import routes from '~/config/routes';
 const c = classNames.bind(styles);
-const currentToKen = localStorage.getItem('success_token');
 function Header() {
     const isLogin = useSelector((state) => state.auth.isLogin);
-    const [avatar, setAvatar] = useState('');
-    useEffect(() => {
-        auth.getCurrentUser(currentToKen)
-            .then((res) => setAvatar(res.avatar))
-            .catch((err) => console.log(err));
-    }, [isLogin]);
+    const { currentUser } = useContext(ProviderServices);
     const [isModal, setIsModal] = useState(false);
     const handleMenuChanges = (menuItem) => {
         console.log(menuItem);
@@ -44,9 +39,15 @@ function Header() {
                 </div>
                 <Search />
                 <div className={c('user')}>
+                    <Button
+                        medium
+                        to={isLogin ? routes.upload : undefined}
+                        iconLeft={<IconAdd color="#161823" />}
+                        content={'tải lên'}
+                        onClick={!isLogin ? openModal : undefined}
+                    />
                     {isLogin ? (
                         <>
-                            <Button medium iconLeft={<IconAdd color="#161823" />} content={'tải lên'} />
                             <Tippy interactive={true} content={'Thông Báo'}>
                                 <button className={c('action-btn')}>
                                     <IconMessage width={'2.6rem'} height={'2.6rem'} />
@@ -60,18 +61,17 @@ function Header() {
 
                             <Menu onChange={handleMenuChanges} menuItem={isLogin ? userMenu : MENU_ITEM}>
                                 <button className={c('btn-setting')}>
-                                    <Image src={avatar} width={'32px'} height={'32px'} className={c('avatar-user')} />
+                                    <Image
+                                        src={currentUser && currentUser.avatar}
+                                        width={'32px'}
+                                        height={'32px'}
+                                        className={c('avatar-user')}
+                                    />
                                 </button>
                             </Menu>
                         </>
                     ) : (
                         <>
-                            <Button
-                                medium
-                                iconLeft={<IconAdd color="#161823" />}
-                                content={'tải lên'}
-                                onClick={openModal}
-                            />
                             <Button primary content={'đăng nhập'} className={'setting-btn'} onClick={openModal} />
                             <Menu onChange={handleMenuChanges} menuItem={MENU_ITEM} hideOnClick={true}>
                                 <button className={c('btn-setting')}>
@@ -82,13 +82,15 @@ function Header() {
                     )}
                 </div>
 
-                <Modal isOpen={isModal}>
-                    <MethodLoginModal
-                        onClick={() => {
-                            setIsModal(false);
-                        }}
-                    />
-                </Modal>
+                {!isLogin && (
+                    <Modal isOpen={isModal}>
+                        <MethodLoginModal
+                            onClickClose={() => {
+                                setIsModal(false);
+                            }}
+                        />
+                    </Modal>
+                )}
             </div>
         </div>
     );

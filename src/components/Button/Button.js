@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 const c = classnames.bind(styles);
 function Button({
+    children,
     key,
     to,
     href,
@@ -62,6 +63,7 @@ function Button({
         <TypeBtn disabled={disabled} className={classes} onClick {...Prop}>
             {iconLeft && <span className={c('icon-left')}>{iconLeft}</span>}
             {content ? <span className={c('content')}>{content}</span> : icon}
+            {children}
             {iconRight && <span className={c('icon-right')}>{iconRight}</span>}
         </TypeBtn>
     );

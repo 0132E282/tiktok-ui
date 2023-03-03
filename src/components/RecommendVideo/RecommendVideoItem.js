@@ -1,8 +1,8 @@
 import classnames from 'classnames/bind';
 import { useEffect, useState, useRef, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import {
     IconCheckBlue,
     IconComment,
@@ -24,6 +24,8 @@ import Menu from '../Popper/Menu';
 import Video from '../video/Video';
 import { useDebounce } from '~/hooks';
 import { ProviderServices } from '~/Services/provider/ProviderGlobal';
+import { userAction } from '~/reduxSage/userSage/userSilce';
+import { publicRoute } from '~/routes';
 const LIST_METHOD_SHARE = [
     {
         icon: <IconLink />,
@@ -48,14 +50,15 @@ const LIST_METHOD_SHARE = [
 ];
 
 const cx = classnames.bind(style);
-function RecommendVideoItem({ user, video, btnFollowing, handleCanPlayVideo }) {
-    const { scrollValue } = useContext(ProviderServices);
-    const [isLike, setIsLike] = useState(video.is_liked);
+function RecommendVideoItem({ user, video, handleCanPlayVideo }) {
+    const { scrollValue, currentUser } = useContext(ProviderServices);
+    const dispatch = useDispatch();
     const [isModal, setIsModal] = useState(false);
     const { isLogin } = useSelector((state) => state.auth);
     const scrollDebounce = useDebounce(scrollValue, 100);
     const { setHistoryPlaying } = useContext(ProviderServices);
     const VideoItemRef = useRef();
+    const currentUrl = useLocation();
     //! cần sửa đoạn nầy
     useEffect(() => {
         let activeVideo;
@@ -92,6 +95,7 @@ function RecommendVideoItem({ user, video, btnFollowing, handleCanPlayVideo }) {
                 </div>
                 <div className={cx('body')}>
                     <div className={cx('video')}>
+                        <Link className={cx('link')} to={'/@' + user.nickname + '/' + video.id + ''}></Link>
                         <Video video_rul={video.file_url} onCanPlay={handleCanPlayVideo} />
                     </div>
                     <div className={cx('video-wrapper__action')}>
@@ -99,9 +103,9 @@ function RecommendVideoItem({ user, video, btnFollowing, handleCanPlayVideo }) {
                             <div className={cx('action-list_item')}>
                                 <div className={cx('action-list_item--icon')}>
                                     <Button
-                                        icon={<IconLike className={cx({ like: isLike })} />}
+                                        icon={<IconLike className={cx({ like: video.is_liked })} />}
                                         onClick={(e) => {
-                                            isLike ? setIsLike(false) : setIsLike(true);
+                                            dispatch(userAction.likeAndUnLikeVideo(video));
                                         }}
                                     />
                                 </div>
@@ -109,7 +113,7 @@ function RecommendVideoItem({ user, video, btnFollowing, handleCanPlayVideo }) {
                             </div>
                             <div className={cx('action-list_item')}>
                                 <div className={cx('action-list_item--icon')}>
-                                    <Link to={'/'}>
+                                    <Link to={`/@${user.nickname}/${video.id}`}>
                                         <IconComment className={cx('link')} />
                                     </Link>
                                 </div>
@@ -132,7 +136,7 @@ function RecommendVideoItem({ user, video, btnFollowing, handleCanPlayVideo }) {
                     </div>
                 </div>
             </div>
-            {btnFollowing && (
+            {currentUrl.pathname !== '/following' && currentUser?.id !== user.id && (
                 <>
                     <Button
                         small
@@ -141,13 +145,15 @@ function RecommendVideoItem({ user, video, btnFollowing, handleCanPlayVideo }) {
                         onClick={(e) => {
                             if (!isLogin) {
                                 setIsModal(true);
+                            } else {
+                                dispatch(userAction.followingAndUnFollow(user));
                             }
                         }}
                     />
 
                     <Modal isOpen={isModal}>
                         <MethodLoginModal
-                            onClick={() => {
+                            onClickClose={() => {
                                 setIsModal(false);
                             }}
                         />

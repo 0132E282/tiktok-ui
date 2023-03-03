@@ -13,6 +13,16 @@
     justify-self: start;
     align-items: flex-end;
     margin-top: 12px;
+    & .video{
+        position: relative;
+        .link-video {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: calc(100% - 100px);
+            z-index: 1;
+        }
+    }
 }
 .info-user__author-link {
     display: flex;
@@ -48,6 +58,7 @@
 .video-wrapper__action-list {
     max-width: 48px;
     overflow: hidden;
+    margin-left: 20px;
     & .action-list_item {
         width: 100%;
         display: flex;

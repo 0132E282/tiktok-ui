@@ -7,11 +7,11 @@ import { useId, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { authAction } from '~/auth/authSilce';
+import { authAction } from '~/reduxSage/authSage/authSilce';
 const cx = classNames.bind(style);
 function FormAuth() {
-    const dispatch = useDispatch();
     const idFormUser = useId();
+    const dispatch = useDispatch();
     const [isShowPassword, setIsShowPassword] = useState(false);
     const {
         handleSubmit,

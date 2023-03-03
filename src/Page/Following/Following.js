@@ -9,6 +9,8 @@ import { useSelector } from 'react-redux';
 import RecommendVideoItem from '~/components/RecommendVideo/RecommendVideoItem';
 import Video from '~/components/video/Video';
 import { useRef } from 'react';
+import { useContext } from 'react';
+import { ProviderServices } from '~/Services/provider/ProviderGlobal';
 const cx = classNames.bind(styles);
 function Following() {
     const [suggested, setSuggested] = useState([]);
@@ -16,6 +18,7 @@ function Following() {
     const [pageUserSuggested, setPageUserSuggested] = useState(1);
     const [pageVideoFollowing, setPageVideoFollowing] = useState(1);
     const { isLogin } = useSelector((state) => state.auth);
+    const { token } = useContext(ProviderServices);
     useEffect(() => {
         userAipServices
             .getSuggested({ page: pageUserSuggested })
@@ -25,14 +28,13 @@ function Following() {
             .catch((err) => console.log(err));
     }, [pageUserSuggested]);
     useEffect(() => {
-        const currentToKen = localStorage.getItem('success_token') ?? '';
-        if (currentToKen) {
+        if (token) {
             videoApiServices
-                .getVideo({ type: 'following', page: pageVideoFollowing, currentToKen })
+                .getVideo({ type: 'following', page: pageVideoFollowing, currentToKen: token })
                 .then((res) => setListVideo((prev) => [...prev, ...res]))
                 .catch((err) => console.log(err));
         }
-    }, [pageVideoFollowing]);
+    }, [pageVideoFollowing, token]);
     return (
         <div className={cx('wrapper')}>
             {!isLogin ? (

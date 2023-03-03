@@ -7,7 +7,7 @@ import video from '~/assets/video';
 import Button from '../Button';
 import { ProviderServices } from '~/Services/provider/ProviderGlobal';
 const cx = classnames.bind(style);
-function Video({ video_rul }) {
+function Video({ video_rul, className, autoPalyVideo }) {
     const mutedRef = useRef();
     const videoRef = useRef();
     const timeLine = useRef();
@@ -16,8 +16,9 @@ function Video({ video_rul }) {
     const [TimeSeekBar, setTimeSeekBar] = useState(0);
     const [durationVideo, setDurationVideo] = useState(0);
     const [isSeekbar, setIsSeekBar] = useState(true);
-    const { isMutedVideo, setMutedVideo, valueVolume, setValueVolume, historyPlaying, setHistoryPlaying } =
-        useContext(ProviderServices);
+    const { isMutedVideo, setMutedVideo, valueVolume, setValueVolume, historyPlaying, setHistoryPlaying } = useContext(
+        ProviderServices,
+    );
     const handleUpdateSeekBar = (e) => {
         if (e.target.duration && isPlayVideo) {
             if (timeLine.current) {
@@ -39,9 +40,10 @@ function Video({ video_rul }) {
         );
     };
     return (
-        <div className={cx('video-wrapper')}>
+        <div className={cx('wrapper', className)}>
             <div className={cx('video-wrapper__container')}>
                 <video
+                    autoPlay={autoPalyVideo}
                     ref={videoRef}
                     src={video_rul || video.videoDefaults}
                     onPlaying={(e) => {
@@ -60,6 +62,7 @@ function Video({ video_rul }) {
                     <div className={cx('controller__button')}>
                         <div className={cx('btn-video')}>
                             <Button
+                                type={'button'}
                                 className={cx('btn__play-pause')}
                                 icon={isPlayVideo ? <IconPlay /> : <IconPause />}
                                 onClick={() => {

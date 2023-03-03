@@ -5,6 +5,7 @@
     display: flex;
     opacity: 1;
     overflow: auto;
+    z-index: 1111111111111111111111111111111;
 }
 .overplay {
     background: rgba(0, 0, 0, 0.5);
@@ -17,7 +18,5 @@
     margin: auto;
     position: relative;
     overflow: hidden;
-    max-height: 693px;
-    height: 80%;
     border-radius: 8px;
 }

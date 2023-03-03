@@ -1,4 +1,4 @@
-import { authAction } from '~/auth/authSilce';
+import { authAction } from '~/reduxSage/authSage/authSilce';
 import { IconLanguages, IconSetting, IconShortcuts, IconHelp, IconUser, IconCoin, IconLogout } from '~/icon';
 export const MENU_ITEM = [
     {

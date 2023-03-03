@@ -133,6 +133,7 @@
         & .video-feed-line {
             position: absolute;
             height: 3px;
+            width: 230px;
             background: rgb(22, 24, 35);
             left: 0;
             bottom: 0;
@@ -255,5 +256,13 @@
             color: var(--color-text-secondary);
             margin-top: 8px;
         }
+    }
+}
+.btn-followed{
+    background-color: transparent;
+    border: 1px solid var( --color-primary);
+    color: var( --color-primary);
+    &:hover {
+        background-color: rgba(254, 44, 85, 0.06);
     }
 }

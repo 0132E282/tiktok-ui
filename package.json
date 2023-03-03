@@ -4,6 +4,7 @@
     "private": true,
     "dependencies": {
         "@hookform/resolvers": "^2.9.10",
+        "@rajesh896/video-thumbnails-generator": "^2.3.9",
         "@reduxjs/toolkit": "^1.9.1",
         "@testing-library/jest-dom": "^5.16.4",
         "@testing-library/react": "^13.3.0",

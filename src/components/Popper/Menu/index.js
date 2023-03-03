@@ -30,13 +30,15 @@ function Menu({
                 <MenuItem
                     key={index}
                     data={item}
-                    onClick={() => {
+                    onClick={(e) => {
                         // handle when there is children
                         if (isChildren) {
                             setHistory((prev) => [...prev, item.children]);
                         }
                         if (item.action) {
                             dispatch(item.action());
+                        } else {
+                            item.handleLickAction(e);
                         }
                     }}
                 />

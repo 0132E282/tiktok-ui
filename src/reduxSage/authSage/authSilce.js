@@ -5,6 +5,7 @@ export const initialStateAuth = {
     logging: false,
     currentUser: undefined,
 };
+
 const authSlice = createSlice({
     name: 'auth',
     initialState: initialStateAuth,
@@ -23,6 +24,10 @@ const authSlice = createSlice({
         logout(state) {
             state.isLogin = false;
             state.currentUser = undefined;
+        },
+        upload(state, action) {},
+        uploadSuccess(state, action) {
+            state.currentUser = action.payload;
         },
     },
 });

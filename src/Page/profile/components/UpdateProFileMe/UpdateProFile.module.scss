@@ -1,0 +1,139 @@
+.wrapper {
+   width:700px;
+   background: rgb(255, 255, 255);
+   border-radius: 8px;
+}
+.header{
+    width: 100%;
+    padding: 24px 24px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.5px solid rgba(22, 24, 35, 0.2);
+    & .title{
+        font-size: 24px;
+        color: var(--color-text-primary);
+        font-weight: 600;
+        line-height: 1.6;
+        &::first-letter{
+            text-transform: capitalize;
+
+        }
+    }
+    & .btn-close{
+      width: 24px; 
+    height: 24px;
+    }
+}
+.container{
+    padding: 8px 24px 0;
+    width: 100%;
+    & .styled-item-container{
+        width: 100%;
+        padding: 16px 0;
+        display: flex;
+        align-items: flex-start;
+        justify-content:space-between;
+        border-bottom: 0.5px solid rgba(22, 24, 35, 0.12);
+        & .title {
+            min-width: 100px;
+            font-size: 1.6rem;
+            color: var( --color-text-primary);
+            font-weight: 600px;
+            line-height: 1.4;
+            &::first-letter{
+                text-transform: capitalize;
+            }
+        }
+    }
+}
+.input-avatar{
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+    position: relative;
+    & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    & .input-file-avatar{
+        right: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+}
+.input{
+    width: 360px;
+    & input{
+        width: 100%;
+        height: 38px;
+        border-radius: 4px;
+        background: rgba(22, 24, 35, 0.06);
+        caret-color: rgb(254, 44, 85);
+        font-size: 16px;
+        color: rgb(22, 24, 35);
+        border: none;
+        padding: 7px 12px;
+        outline: none;
+    }
+    .description{
+        color: var( --color-text-secondary);
+        margin-top: 16px;
+        font-size: 1.2rem;
+        line-height: 18px;
+        max-width: 460px;
+        overflow: hidden;
+    }
+    .edit-profile-username-tip{
+        margin-top: 8px;
+    }
+}
+.style-input-textarea{
+    width: 360px;
+    border-radius: 4px;
+    background: rgba(22, 24, 35, 0.06);
+    caret-color: rgb(254, 44, 85);
+    font-size: 16px;
+    color: rgb(22, 24, 35);
+    line-height: 24px;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    height: 100px;
+    padding: 12px;
+    resize: none;
+}
+.text-count {
+    color: rgba(22, 24, 35, 0.75);
+    font-size: 12px;
+    line-height: 18px;
+}
+.action{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 5px 24px;
+    margin-top: 10px;
+}
+.input-name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & input{
+        font-size: 16px;
+        color: rgb(22, 24, 35);
+        flex: 1;
+        & ~ input {
+            margin-left: 10px;
+        }
+    }
+}

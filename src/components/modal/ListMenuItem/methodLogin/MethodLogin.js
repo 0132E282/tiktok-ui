@@ -2,12 +2,12 @@ import classnames from 'classnames/bind';
 import { ListMenuMethods } from './listMenu';
 import PropTypes from 'prop-types';
 import styles from './MethodLogin.module.scss';
-import FormAuth from '~/Forms/FormAuth';
+import FormAuth from '~/components/Forms/FormAuth';
 import MethodLoginItem from './MethodLoginItem';
 import { IconClose } from '~/icon';
 import { useReducer } from 'react';
 const cx = classnames.bind(styles);
-function MethodLoginModal({ onClick }) {
+function MethodLoginModal({ onClickClose }) {
     function actionInputForm(start, action) {
         switch (action) {
             case 'LOGION-ACCOUNT':
@@ -39,7 +39,7 @@ function MethodLoginModal({ onClick }) {
     const [InputForm, dispatch] = useReducer(actionInputForm, initialInputForm);
     return (
         <div className={cx('wrapper')}>
-            <button className={cx('close')} onClick={onClick}>
+            <button className={cx('close')} onClick={onClickClose}>
                 {' '}
                 <IconClose width={'2.5rem'} height={'2.5rem'} />{' '}
             </button>
