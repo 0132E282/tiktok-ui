@@ -1,5 +1,5 @@
 import classnames from 'classnames/bind';
-import { useEffect, useState, useRef, useContext } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
@@ -13,19 +13,18 @@ import {
     IconLink,
     IconShare,
     IconInstagram,
+    IconMusic,
+    IconMusicNote,
 } from '~/icon';
 import style from './RecommendVideo.module.scss';
-import routes from '~/config/routes';
 import Image from '~/Images';
 import Button from '../Button';
-import Modal from '../modal';
-import MethodLoginModal from '../modal/ListMenuItem/methodLogin/MethodLogin';
+
 import Menu from '../Popper/Menu';
 import Video from '../video/Video';
-import { useDebounce } from '~/hooks';
 import { ProviderServices } from '~/Services/provider/ProviderGlobal';
 import { userAction } from '~/reduxSage/userSage/userSilce';
-import { publicRoute } from '~/routes';
+import { forwardRef } from 'react';
 const LIST_METHOD_SHARE = [
     {
         icon: <IconLink />,
@@ -50,32 +49,13 @@ const LIST_METHOD_SHARE = [
 ];
 
 const cx = classnames.bind(style);
-function RecommendVideoItem({ user, video, handleCanPlayVideo }) {
-    const { scrollValue, currentUser } = useContext(ProviderServices);
-    const dispatch = useDispatch();
-    const [isModal, setIsModal] = useState(false);
+function RecommendVideoItem({ user, video, onCanPlayVideo }, ref) {
+    const { currentUser, setIsModalLogin } = useContext(ProviderServices);
     const { isLogin } = useSelector((state) => state.auth);
-    const scrollDebounce = useDebounce(scrollValue, 100);
-    const { setHistoryPlaying } = useContext(ProviderServices);
-    const VideoItemRef = useRef();
+    const dispatch = useDispatch();
     const currentUrl = useLocation();
-    //! cần sửa đoạn nầy
-    useEffect(() => {
-        let activeVideo;
-        if (
-            scrollDebounce - VideoItemRef.current.offsetTop < 300 &&
-            scrollDebounce - VideoItemRef.current.offsetTop > -150
-        ) {
-            activeVideo = VideoItemRef.current.querySelector('video');
-            activeVideo.play();
-            setHistoryPlaying(activeVideo);
-        }
-        return () => {
-            activeVideo && activeVideo.pause();
-        };
-    }, [scrollDebounce, setHistoryPlaying]);
     return (
-        <div className={cx('wrapper')} ref={VideoItemRef}>
+        <div className={cx('wrapper')} ref={ref}>
             <Image className={cx('avatar avatar-m')} src={user.avatar} />
             <div className={cx('container')}>
                 <div className={cx('info-user')}>
@@ -90,13 +70,25 @@ function RecommendVideoItem({ user, video, handleCanPlayVideo }) {
                     </div>
                     <p className={cx('info-user__description')}>{video.description}</p>
                     <a href="/#" className={cx('video-music')}>
+                        <span className={cx('icon')}>
+                            <IconMusicNote />
+                        </span>
                         {video.music}
                     </a>
                 </div>
                 <div className={cx('body')}>
                     <div className={cx('video')}>
-                        <Link className={cx('link')} to={'/@' + user.nickname + '/' + video.id + ''}></Link>
-                        <Video video_rul={video.file_url} onCanPlay={handleCanPlayVideo} />
+                        <Link
+                            className={cx('link')}
+                            to={'/@' + user.nickname + '/' + video.id + ''}
+                            onClick={(e) => {
+                                if (e.target.closest('button') || e.target.closest('input')) {
+                                    e.preventDefault();
+                                }
+                            }}
+                        >
+                            <Video video_rul={video.file_url} onCanPlay={onCanPlayVideo} />
+                        </Link>
                     </div>
                     <div className={cx('video-wrapper__action')}>
                         <div className={cx('video-wrapper__action-list')}>
@@ -104,8 +96,10 @@ function RecommendVideoItem({ user, video, handleCanPlayVideo }) {
                                 <div className={cx('action-list_item--icon')}>
                                     <Button
                                         icon={<IconLike className={cx({ like: video.is_liked })} />}
-                                        onClick={(e) => {
-                                            dispatch(userAction.likeAndUnLikeVideo(video));
+                                        onClick={() => {
+                                            !isLogin
+                                                ? setIsModalLogin(true)
+                                                : dispatch(userAction.likeAndUnLikeVideo(video));
                                         }}
                                     />
                                 </div>
@@ -113,7 +107,16 @@ function RecommendVideoItem({ user, video, handleCanPlayVideo }) {
                             </div>
                             <div className={cx('action-list_item')}>
                                 <div className={cx('action-list_item--icon')}>
-                                    <Link to={`/@${user.nickname}/${video.id}`}>
+                                    <Link
+                                        to={`/@${user.nickname}/${video.id}`}
+                                        onClick={(e) => {
+                                            if (!isLogin) {
+                                                e.preventDefault();
+                                                setIsModalLogin(true);
+                                            } else {
+                                            }
+                                        }}
+                                    >
                                         <IconComment className={cx('link')} />
                                     </Link>
                                 </div>
@@ -143,25 +146,13 @@ function RecommendVideoItem({ user, video, handleCanPlayVideo }) {
                         btnPrimary={!user.is_followed}
                         content={user.is_followed ? 'đang follow' : 'follow'}
                         onClick={(e) => {
-                            if (!isLogin) {
-                                setIsModal(true);
-                            } else {
-                                dispatch(userAction.followingAndUnFollow(user));
-                            }
+                            dispatch(userAction.followingAndUnFollow(user));
                         }}
                     />
-
-                    <Modal isOpen={isModal}>
-                        <MethodLoginModal
-                            onClickClose={() => {
-                                setIsModal(false);
-                            }}
-                        />
-                    </Modal>
                 </>
             )}
         </div>
     );
 }
 
-export default RecommendVideoItem;
+export default forwardRef(RecommendVideoItem);

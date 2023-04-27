@@ -2,7 +2,7 @@ import * as Req from '~/utils/request';
 
 export const getCurrentUser = async (currentToKen) => {
     try {
-        const res = await Req.get('auth/me',{
+        const res = await Req.get('auth/me', {
             headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',

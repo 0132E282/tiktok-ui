@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-
 export const initialStateAuth = {
     isLogin: false,
     logging: false,
     currentUser: undefined,
+    isUpdated: false,
 };
 
 const authSlice = createSlice({
@@ -17,6 +17,7 @@ const authSlice = createSlice({
             state.logging = false;
             state.isLogin = true;
             state.currentUser = action.payload;
+            window.location.reload();
         },
         loginFailed(state, action) {
             state.logging = false;
@@ -24,10 +25,15 @@ const authSlice = createSlice({
         logout(state) {
             state.isLogin = false;
             state.currentUser = undefined;
+            window.location.reload();
         },
-        upload(state, action) {},
+        upload(state, action) {
+            state.isUpdated = false;
+        },
         uploadSuccess(state, action) {
+            state.isUpdated = true;
             state.currentUser = action.payload;
+            window.location.reload();
         },
     },
 });

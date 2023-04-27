@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { publicRoute } from '~/routes';
 import ProviderGlobal from './Services/provider/ProviderGlobal';
 import { DefaultLayout } from '~/components/Layout';
+
 function App() {
     return (
         <ProviderGlobal>

@@ -1,5 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import * as auth from '~/Services/Api/auth';
+import Modal from '~/components/modal/Modal';
+import MethodLoginModal from '~/components/modal/ListMenuItem/methodLogin/MethodLogin';
 export const ProviderServices = createContext();
 function ProviderGlobal({ children }) {
     const [valueVolume, setValueVolume] = useState(100);
@@ -7,6 +9,7 @@ function ProviderGlobal({ children }) {
     const [isMutedVideo, setMutedVideo] = useState(false);
     const [historyPlaying, setHistoryPlaying] = useState((req) => req);
     const [currentUser, setCurrentUser] = useState({});
+    const [isModalLogin, setIsModalLogin] = useState(false);
     const token = localStorage.getItem('success_token');
     useEffect(() => {
         auth.getCurrentUser(token)
@@ -34,9 +37,18 @@ function ProviderGlobal({ children }) {
                 setScrollValue,
                 historyPlaying,
                 setHistoryPlaying,
+                isModalLogin,
+                setIsModalLogin,
             }}
         >
             {children}
+            <Modal isOpen={isModalLogin}>
+                <MethodLoginModal
+                    onClickClose={() => {
+                        setIsModalLogin(false);
+                    }}
+                />
+            </Modal>
         </ProviderServices.Provider>
     );
 }

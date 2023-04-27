@@ -9,20 +9,36 @@
     height: 100%;
     position: relative;
 }
-.close {
+.header{
     position: absolute;
     top: 15px;
-    right: 15px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    padding: 0 15px;
+    display: flex;
+    justify-content:end;
+    align-items: center;
+}
+.header:has( > button ~ button){
+    justify-content: space-between;
+}
+
+.btn-back,.btn-close{
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    background: rgba(22, 24, 35, 0.03);
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+    background-color: transparent;
+    box-shadow: none;
+    color: var(--color-text-primary);
+    &:hover {
+        background-color: transparent;
+    }
 }
+
+.btn-close{
+    background: rgba(22, 24, 35, 0.03) !important;
+}
+
 .container {
     flex: 1;
     width: 100%;

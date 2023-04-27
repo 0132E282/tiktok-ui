@@ -31,17 +31,18 @@ export const getAVideo = async ({ id, currentToKen }) => {
         console.log(err);
     }
 };
-export const postUploadVideo = async (currentToKen, { upload_file, thumbnail_time, music, description, viewable }) => {
+export const postUploadVideo = async (currentToKen, { data, onUploadProgress }) => {
     try {
         const res = await Req.post(
             'videos',
-            { currentToKen, upload_file, thumbnail_time, music, description, viewable },
+            { currentToKen, ...data },
             {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Accept: 'application/json',
                     Authorization: `Bearer ${currentToKen}`,
                 },
+                onUploadProgress: onUploadProgress,
             },
         );
         return res.data;

@@ -4,21 +4,29 @@ import PropTypes from 'prop-types';
 import styles from './MethodLogin.module.scss';
 import FormAuth from '~/components/Forms/FormAuth';
 import MethodLoginItem from './MethodLoginItem';
-import { IconClose } from '~/icon';
+import { IconBack, IconClose } from '~/icon';
 import { useReducer } from 'react';
+import Button from '~/components/Button/Button';
+import { useState } from 'react';
 const cx = classnames.bind(styles);
 function MethodLoginModal({ onClickClose }) {
     function actionInputForm(start, action) {
         switch (action) {
             case 'LOGION-ACCOUNT':
-                return FormAuth;
+                return {
+                    isBtnBack: true,
+                    from: FormAuth,
+                };
             default:
-                alert('chức năng chưa được cập nhập');
+                return {
+                    isBtnBack: false,
+                    from: initialInputForm,
+                };
         }
     }
     const initialInputForm = function () {
         return (
-            <>
+            <div className={'wrapper'}>
                 <h1 className={cx('heading')}>Đăng nhập vào TikTok </h1>
                 <div className={cx('item-list')}>
                     {ListMenuMethods.map((item, index) => {
@@ -33,18 +41,25 @@ function MethodLoginModal({ onClickClose }) {
                         );
                     })}
                 </div>
-            </>
+            </div>
         );
     };
-    const [InputForm, dispatch] = useReducer(actionInputForm, initialInputForm);
+    const [InputForm, dispatch] = useReducer(actionInputForm, { isBtnBack: false, from: initialInputForm });
+    const Form = InputForm.from;
     return (
         <div className={cx('wrapper')}>
-            <button className={cx('close')} onClick={onClickClose}>
-                {' '}
-                <IconClose width={'2.5rem'} height={'2.5rem'} />{' '}
-            </button>
+            <div className={cx('header')}>
+                {InputForm.isBtnBack && (
+                    <Button className={cx('btn-back')} circle onClick={() => dispatch('BACK')}>
+                        <IconBack width={'2.5rem'} height={'2.5rem'} />
+                    </Button>
+                )}
+                <Button className={cx('btn-close')} circle onClick={onClickClose}>
+                    <IconClose width={'2.5rem'} height={'2.5rem'} />
+                </Button>
+            </div>
             <div className={cx('container')}>
-                <InputForm />
+                <Form />
             </div>
             <div className={cx('footer')}>
                 Bạn không có tài khoản?{' '}

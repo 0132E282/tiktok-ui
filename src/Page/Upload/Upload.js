@@ -15,6 +15,7 @@ import { ProviderServices } from '~/Services/provider/ProviderGlobal';
 import Modal from '~/components/modal/Modal';
 import Notification from './components/Notification';
 import { generateVideoThumbnails } from '@rajesh896/video-thumbnails-generator';
+import ProgressVideo from '~/components/loading/progressVidep';
 import Image from '~/Images';
 const CHECK_BOX_LICENSE = [
     {
@@ -45,22 +46,28 @@ function Upload() {
     const [valueNote, setValueNote] = useState('');
     const [tagUserFollow, setTagUserFollow] = useState(false);
     const [thumbnailTimeList, setThumbnailItemList] = useState([]);
+    const [progress, setProgress] = useState(0);
     const thumbnailRef = useRef();
     const { token } = useContext(ProviderServices);
     const reduxUploadVideo = (state, action) => {
         switch (action.type) {
             case 'UPLOAD_VIDEO':
+                const data = {
+                    upload_file: action.payload.video,
+                    description: action.payload.description,
+                    viewable: action.payload.viewable,
+                    allows: action.payload.allows,
+                    thumbnail_time: Math.floor(action.payload.thumbnail_time),
+                };
                 videoApiServices
                     .postUploadVideo(token, {
-                        upload_file: action.payload.video,
-                        description: action.payload.description,
-                        viewable: action.payload.viewable,
-                        allows: action.payload.allows,
-                        thumbnail_time: Math.floor(action.payload.thumbnail_time),
+                        data,
+                        onUploadProgress(progressEvent) {
+                            const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+                            setProgress(percentCompleted);
+                        },
                     })
-                    .then((res) => {
-                        if (res) setIsOpenModal(true);
-                    })
+                    .then((res) => {})
                     .catch((err) => console.log(err));
                 break;
             default:
@@ -90,6 +97,7 @@ function Upload() {
                 <form
                     className={cx('upload-container')}
                     onSubmit={handleSubmit((data) => {
+                        setIsOpenModal(true);
                         dispatchVideo({
                             type: actionTypeVideo.UPLOAD_VIDEO,
                             payload: {
@@ -102,30 +110,41 @@ function Upload() {
                 >
                     <div className={cx('video-upload')}>
                         <div className={cx('wrapper')}>
-                            {!videoUpload ? (
+                            {!videoUpload && !progress ? (
                                 <div
                                     className={cx('input-file')}
                                     onClick={() => {
                                         document.querySelector('input[type="file"]').click();
                                     }}
                                 >
-                                    <span>
-                                        <IconUpload />
-                                    </span>
-                                    <div className={cx('content')}>
-                                        <h1 className={cx('title')}>Chọn video để tải lên</h1>
-                                        <p className={cx('description')}>Hoặc kéo và thả tập tin</p>
-                                        <span>MP4 hoặc WebM</span>
-                                        <span>Độ phân giải 720x1280 trở lên</span>
-                                        <span>Tối đa 30 phút</span>
-                                        <span>Nhỏ hơn 2 GB</span>
-                                    </div>
-                                    <Button
-                                        type={'button'}
-                                        primary
-                                        className={cx('btn-upload')}
-                                        content={'Chọn tập tin'}
-                                    />
+                                    {!progress ? (
+                                        <>
+                                            <span>
+                                                <IconUpload />
+                                            </span>
+                                            <div className={cx('content')}>
+                                                <h1 className={cx('title')}>Chọn video để tải lên</h1>
+                                                <p className={cx('description')}>Hoặc kéo và thả tập tin</p>
+                                                <span>MP4 hoặc WebM</span>
+                                                <span>Độ phân giải 720x1280 trở lên</span>
+                                                <span>Tối đa 30 phút</span>
+                                                <span>Nhỏ hơn 2 GB</span>
+                                            </div>
+                                            <Button
+                                                type={'button'}
+                                                primary
+                                                className={cx('btn-upload')}
+                                                content={'Chọn tập tin'}
+                                            />
+                                        </>
+                                    ) : (
+                                        <ProgressVideo
+                                            file={videoUpload}
+                                            onLoaded={() => {
+                                                setProgress(true);
+                                            }}
+                                        />
+                                    )}
                                 </div>
                             ) : (
                                 <>
@@ -135,7 +154,7 @@ function Upload() {
                                         </div>
                                     </div>
                                     <div className={cx('change-video')}>
-                                        <span>{videoUpload.name}</span>
+                                        <span>{videoUpload?.name}</span>
                                         <button
                                             className={cx('btn-change-video')}
                                             onClick={() => {
@@ -152,6 +171,9 @@ function Upload() {
                                 accept={'video/*'}
                                 onChange={(e) => {
                                     if (e.target.files[0].type === 'video/mp4') setVideoUpload(e.target.files[0]);
+                                }}
+                                onInput={(e) => {
+                                    setProgress(true);
                                 }}
                             />
                         </div>
@@ -264,7 +286,10 @@ function Upload() {
                                                         }}
                                                     />
                                                     <div className={cx('slider-thumb')} ref={sliderThumbRef}>
-                                                        <video src={urlVideo} ref={videoThumbnail}></video>
+                                                        <video
+                                                            src={thumbnailTimeList.length > 0 && urlVideo}
+                                                            ref={videoThumbnail}
+                                                        ></video>
                                                     </div>
                                                 </div>
                                             </div>
@@ -324,6 +349,7 @@ function Upload() {
                     closeNotification={() => {
                         setIsOpenModal(false);
                     }}
+                    value={progress}
                 />
             </Modal>
         </div>

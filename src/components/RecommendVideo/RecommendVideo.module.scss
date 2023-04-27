@@ -50,6 +50,14 @@
     line-height: 1.6;
     color: var(--color-text-primary);
 }
+.video-music{
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--color-text-primary);
+    &:hover{
+       text-decoration: revert;
+    }
+}
 .info-user__description {
     font-size: 1.6rem;
     color: var(--color-text-primary);

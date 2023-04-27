@@ -31,6 +31,7 @@ import { useContext } from 'react';
 import { ProviderServices } from '~/Services/provider/ProviderGlobal';
 import { userAction } from '~/reduxSage/userSage/userSilce';
 import { useDebounce } from '~/hooks';
+import BellPage from '~/components/bell/bellPage';
 const cx = classnames.bind(styles);
 const LIST_METHOD_SHARE = [
     {
@@ -75,7 +76,7 @@ function Profile() {
     const [indexVideo, setIndexVideo] = useState(0);
     const indexVideoDebounce = useDebounce(indexVideo, 300);
     const [user, setUser] = useState({});
-    const currentUser = useSelector((state) => state.auth.currentUser);
+    const { currentUser, isUpdated } = useSelector((state) => state.auth);
     const userRedux = useSelector((state) => state.user);
     const videoListRef = useRef([]);
     const [isModal, setIsModal] = useState(false);
@@ -84,7 +85,7 @@ function Profile() {
     const dispatch = useDispatch();
     useEffect(() => {
         userServices
-            .getAnUser({ nickname, currentToKen: token.token })
+            .getAnUser({ nickname, currentToKen: token })
             .then((res) => {
                 if (res && currentUser && res.id === currentUser.id) {
                     setActionUserName('sửa hồ sở');
@@ -266,6 +267,7 @@ function Profile() {
                     }}
                 />
             </Modal>
+            <BellPage isOpen={isUpdated}>cập nhập hồ sơ thành công</BellPage>
         </>
     );
 }

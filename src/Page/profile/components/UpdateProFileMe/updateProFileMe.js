@@ -1,7 +1,7 @@
 import classnames from 'classnames/bind';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { memo, useContext, useEffect, useState } from 'react';
+import { memo, useState } from 'react';
 
 import Button from '~/components/Button';
 import { IconClose } from '~/icon';
@@ -13,12 +13,7 @@ import useGetUrl from '~/hooks/useGetUrl';
 const cx = classnames.bind(style);
 function UpdateProFileMe({ handleOnClickClose }) {
     const dispatch = useDispatch();
-    const {
-        register,
-        handleSubmit,
-        watch,
-        formState: { errors },
-    } = useForm();
+    const { register, handleSubmit } = useForm();
     const { currentUser } = useSelector((state) => state.auth);
     const [nickname, setNickName] = useState(currentUser.nickname);
     const [selectedFile, setSelectedFile] = useState();
@@ -37,6 +32,7 @@ function UpdateProFileMe({ handleOnClickClose }) {
             <div className={cx('container')}>
                 <form
                     className={cx('form')}
+                    method="POST"
                     onSubmit={handleSubmit((data) => {
                         dispatch(
                             authAction.upload({

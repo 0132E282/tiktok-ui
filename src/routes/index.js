@@ -19,7 +19,6 @@ const publicRoute = [
     {
         path: routesConfig.upload,
         component: Upload,
-        layout: HeaderOnly,
     },
     {
         path: routesConfig.profile,

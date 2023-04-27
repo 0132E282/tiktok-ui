@@ -7,6 +7,7 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import Image from '~/Images';
 import { IconCheckBlue } from '~/icon';
 import Tippy from '@tippyjs/react/headless';
+import { Link } from 'react-router-dom';
 const cx = classNames.bind(styles);
 function ItemAccount({ data }) {
     return (
@@ -23,20 +24,22 @@ function ItemAccount({ data }) {
                     </div>
                 )}
             >
-                <div className={cx('item-account')}>
-                    <Image className={cx('item-account-image')} src={data.avatar} />
-                    <div className={cx('item-account_container')}>
-                        <div className={cx('item-account_title')}>
-                            <h3 className={cx('container_nickname')}>{data.nickname} </h3>
-                            {data.tick && (
-                                <span>
-                                    <IconCheckBlue className={cx('blueTicks')} />
-                                </span>
-                            )}
+                <Link to={'/@' + data.nickname}>
+                    <div className={cx('item-account')}>
+                        <Image className={cx('item-account-image')} src={data.avatar} />
+                        <div className={cx('item-account_container')}>
+                            <div className={cx('item-account_title')}>
+                                <h3 className={cx('container_nickname')}>{data.nickname} </h3>
+                                {data.tick && (
+                                    <span>
+                                        <IconCheckBlue className={cx('blueTicks')} />
+                                    </span>
+                                )}
+                            </div>
+                            <h4 className={cx('container_fullname')}>{data.first_name + ' ' + data.last_name}</h4>
                         </div>
-                        <h4 className={cx('container_fullname')}>{data.first_name + ' ' + data.last_name}</h4>
                     </div>
-                </div>
+                </Link>
             </Tippy>
         </>
     );
