@@ -1,10 +1,4 @@
-<h1>project tiktok-ui </h1>
-<h3> demo </h3>
- <ul> 
-    <li> https://tiktok-ui-git-master-0132e282.vercel.app </li>
-    <li> https://tiktok-ui-0132e282.vercel.app </li>
-    <li> https://tiktok-ui-iota.vercel.app</li>
- </ul>
+
 <h3> tiktok-ui project introduction </h3>
 <div> it is a project study of webiste f8 , based website tiktok  it is written in by react js <a href="https://tiktok-ui-iota.vercel.app/">demo</a>  </div>
 <h3> all library used in this project </h3>
