@@ -8,6 +8,9 @@
 ![image](https://github.com/0132E282/tiktok-ui/assets/93367209/0e8c84bb-e8e8-4b4f-8e3f-a9f69f4eb952)
 ![image](https://github.com/0132E282/tiktok-ui/assets/93367209/e988cb1f-5ca9-46c3-979c-00fca8a57446)
 ## LOGIN 
+Test account : 
+ email : hoangphuc01975@gmail.com 
+ password : 123456
 ![image](https://github.com/0132E282/tiktok-ui/assets/93367209/e28a01db-567d-42aa-91ef-ab33f0215f90)
 
 ### project functions
