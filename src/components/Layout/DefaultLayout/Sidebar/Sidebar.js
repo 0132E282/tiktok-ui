@@ -200,7 +200,7 @@ function Sidebar({ className }) {
             </div>
             <Modal isOpen={isModal}>
                 <MethodLoginModal
-                    onClick={() => {
+                    onClickClose={() => {
                         setIsModal(false);
                     }}
                 />

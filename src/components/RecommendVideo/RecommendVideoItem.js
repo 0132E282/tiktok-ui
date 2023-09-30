@@ -1,5 +1,5 @@
 import classnames from 'classnames/bind';
-import { useContext } from 'react';
+import {useContext , forwardRef , useRef} from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
@@ -13,7 +13,6 @@ import {
     IconLink,
     IconShare,
     IconInstagram,
-    IconMusic,
     IconMusicNote,
 } from '~/icon';
 import style from './RecommendVideo.module.scss';
@@ -24,7 +23,6 @@ import Menu from '../Popper/Menu';
 import Video from '../video/Video';
 import { ProviderServices } from '~/Services/provider/ProviderGlobal';
 import { userAction } from '~/reduxSage/userSage/userSilce';
-import { forwardRef } from 'react';
 const LIST_METHOD_SHARE = [
     {
         icon: <IconLink />,
@@ -54,6 +52,7 @@ function RecommendVideoItem({ user, video, onCanPlayVideo }, ref) {
     const { isLogin } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
     const currentUrl = useLocation();
+    const videoRef = useRef(null)
     return (
         <div className={cx('wrapper')} ref={ref}>
             <Image className={cx('avatar avatar-m')} src={user.avatar} />
@@ -77,17 +76,17 @@ function RecommendVideoItem({ user, video, onCanPlayVideo }, ref) {
                     </a>
                 </div>
                 <div className={cx('body')}>
-                    <div className={cx('video')}>
+                    <div className={cx('video')} ref={videoRef}>
                         <Link
                             className={cx('link')}
                             to={'/@' + user.nickname + '/' + video.id + ''}
                             onClick={(e) => {
-                                if (e.target.closest('button') || e.target.closest('input')) {
+                                if (e.target.closest('button') || e.target.closest('button') || !isLogin ) {
                                     e.preventDefault();
                                 }
                             }}
                         >
-                            <Video video_rul={video.file_url} onCanPlay={onCanPlayVideo} />
+                            <Video video_url={video.file_url} onCanPlay={onCanPlayVideo} />
                         </Link>
                     </div>
                     <div className={cx('video-wrapper__action')}>
@@ -140,7 +139,7 @@ function RecommendVideoItem({ user, video, onCanPlayVideo }, ref) {
                 </div>
             </div>
             {currentUrl.pathname !== '/following' && currentUser?.id !== user.id && (
-                <>
+                <div className={cx('button-follow')}>
                     <Button
                         small
                         btnPrimary={!user.is_followed}
@@ -149,7 +148,7 @@ function RecommendVideoItem({ user, video, onCanPlayVideo }, ref) {
                             dispatch(userAction.followingAndUnFollow(user));
                         }}
                     />
-                </>
+                </div>
             )}
         </div>
     );

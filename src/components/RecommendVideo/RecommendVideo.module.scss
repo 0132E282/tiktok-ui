@@ -4,6 +4,10 @@
     display: flex;
     border-bottom: 1px solid #e7e7e9;
 }
+.video-wrapper__container {
+    background-color:  black;
+        width: 100%;
+}
 .container {
     flex: 1;
     margin-left: 12px;
@@ -103,4 +107,13 @@
 }
 .menu_method-share {
     width: 280px;
+}
+.button-follow{
+    position: relative;
+    width: 88px;
+    & button {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
 }

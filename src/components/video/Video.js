@@ -3,11 +3,10 @@ import { useRef, useState, useContext } from 'react';
 
 import style from './Video.module.scss';
 import { IconVolume, IconPause, IconPlay, IconMuted } from '~/icon';
-import video from '~/assets/video';
 import Button from '../Button';
 import { ProviderServices } from '~/Services/provider/ProviderGlobal';
 const cx = classnames.bind(style);
-function Video({ video_rul, className, autoPalyVideo }) {
+function Video({ video_url, className, onClick ,autoPalyVideo}) {
     const mutedRef = useRef();
     const videoRef = useRef();
     const timeLine = useRef();
@@ -43,9 +42,7 @@ function Video({ video_rul, className, autoPalyVideo }) {
         <div className={cx('wrapper', className)}>
             <div className={cx('video-wrapper__container')}>
                 <video
-                    autoPlay={autoPalyVideo}
                     ref={videoRef}
-                    src={video_rul || video.videoDefaults}
                     onPlaying={(e) => {
                         setDurationVideo(e.target.duration);
                         setPlayVideo(true);
@@ -54,10 +51,14 @@ function Video({ video_rul, className, autoPalyVideo }) {
                         setPlayVideo(false);
                         setDurationVideo(0);
                     }}
+                    onClick={onClick}
                     onTimeUpdate={handleUpdateSeekBar}
                     muted={isMutedVideo}
+                    autoPlay={autoPalyVideo}
                     loop
-                ></video>
+                >
+                     <source src={video_url} type="video/mp4" />
+                </video>
                 <div className={cx('video__container--controller')}>
                     <div className={cx('controller__button')}>
                         <div className={cx('btn-video')}>
@@ -70,10 +71,13 @@ function Video({ video_rul, className, autoPalyVideo }) {
                                         if (historyPlaying) {
                                             historyPlaying.pause();
                                         }
+                                        
                                         videoRef.current.play();
+                                        console.log(videoRef.current)
                                         setHistoryPlaying(videoRef.current);
                                     } else {
                                         videoRef.current.pause();
+                                       
                                     }
                                 }}
                             />
@@ -82,7 +86,7 @@ function Video({ video_rul, className, autoPalyVideo }) {
                             <Button
                                 icon={isMutedVideo ? <IconMuted /> : <IconVolume />}
                                 className={cx('m-0', 'btn-isMuted')}
-                                onClick={(e) => {
+                                onClick={() => {
                                     setMutedVideo(!isMutedVideo);
                                     setValueVolume(!isMutedVideo ? 0 : 100);
                                 }}

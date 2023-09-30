@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { forwardRef } from 'react';
+import { forwardRef, memo } from 'react';
 import style from './comment.module.scss';
 
 import { IconAt } from '~/icon';
@@ -12,7 +12,6 @@ function Comment({ children, onSubmit }, ref) {
         register,
         formState: { errors },
     } = useForm();
-
     return (
         <div className={cx('wrapper')}>
             <div className={cx('content')}>{children}</div>
@@ -45,4 +44,4 @@ function Comment({ children, onSubmit }, ref) {
     );
 }
 
-export default forwardRef(Comment);
+export default memo(forwardRef(Comment));

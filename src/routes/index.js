@@ -3,9 +3,8 @@ import Following from '~/Page/Following';
 import Upload from '~/Page/Upload';
 import VideoDetail from '~/Page/VideoDetail';
 import profile from '~/Page/profile';
-import { HeaderOnly, LayoutFull } from '~/components/Layout';
+import { LayoutFull, LayoutNotSidebar, DetailVideoLayout } from '~/components/Layout';
 import routesConfig from '~/config/routes';
-import DetailVideoLayout from '~/components/Layout/DetailVideo';
 // contains the page not login
 const publicRoute = [
     {
@@ -19,6 +18,7 @@ const publicRoute = [
     {
         path: routesConfig.upload,
         component: Upload,
+        layout: LayoutNotSidebar,
     },
     {
         path: routesConfig.profile,

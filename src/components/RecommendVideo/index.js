@@ -1,5 +1,5 @@
 import classnames from 'classnames/bind';
-import { useState, lazy, useContext, useEffect, useRef, Suspense, memo } from 'react';
+import { useState, lazy, useContext, useEffect, useRef, Suspense, memo, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -11,10 +11,10 @@ import { ProviderServices } from '~/Services/provider/ProviderGlobal';
 const RecommendVideoItem = lazy(() => import('./RecommendVideoItem'));
 const cx = classnames.bind(style);
 function VideoList() {
-    const { token } = useContext(ProviderServices);
-    const { scrollValue } = useContext(ProviderServices);
+    const { token , scrollValue} = useContext(ProviderServices);
     const scrollDebounce = useDebounce(scrollValue, 400);
     const VideoListRef = useRef([]);
+    const videoRecommendList = useRef(null)
     const [listVideo, setListVideo] = useState([]);
     const [page, setPage] = useState(1);
     const location = useLocation();
@@ -22,10 +22,10 @@ function VideoList() {
     useEffect(() => {
         let videoActive = VideoListRef.current[0];
         if (scrollDebounce) {
-            videoActive = VideoListRef.current.find((value, index, arr) => {
-                return scrollDebounce - value.offsetTop < 300 && scrollDebounce - value.offsetTop > -150;
+            videoActive = VideoListRef.current.find((value) => {
+                return scrollDebounce - value.offsetTop < 200 && scrollDebounce - value.offsetTop > -150;
             });
-
+           
             if ((scrollDebounce * 100) / VideoListRef.current[VideoListRef.current.length - 1]?.offsetTop > 95) {
                 setPage(page + 1);
             }
@@ -35,7 +35,8 @@ function VideoList() {
         return () => {
             videoPlay?.pause();
         };
-    }, [page, scrollDebounce, user]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [scrollDebounce]);
     useEffect(() => {
         const typeName = location.pathname === routes.following && token ? 'following' : 'for-you';
         videoApiServices
@@ -61,7 +62,7 @@ function VideoList() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user]);
     return (
-        <div className={cx('rapper')}>
+        <div className={cx('rapper')} ref={videoRecommendList}>
             {listVideo.map((videoItem, index) => {
                 return (
                     <Suspense key={videoItem.id}>

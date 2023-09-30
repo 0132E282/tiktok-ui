@@ -88,7 +88,6 @@
 }
 
 .input-comment-container{
-    min-height: 83px;
     width: 100%;
     padding: 15px 21px;
     display: flex;
@@ -98,13 +97,13 @@
 .form-comment{
     flex: 1;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
 }
 .input-comment{
     flex: 1;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: flex-start;
     border: none;
     border-radius: 8px;

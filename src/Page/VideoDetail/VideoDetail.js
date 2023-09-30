@@ -4,8 +4,8 @@ import Comment from './components/comment';
 import HeaderContentVideo from './components/HeaderConentVideo';
 import style from './VideoDetail.module.scss';
 import * as VideoServices from '~/Services/Api/videoServices';
-import { useEffect, useRef, useState ,useContext,useReducer} from 'react';
-import {  Navigate, useParams } from 'react-router-dom';
+import { useEffect, useRef, useState, useContext, useReducer } from 'react';
+import { Navigate, Router, useParams } from 'react-router-dom';
 import * as commentsServices from '~/Services/Api/comments';
 import { ProviderServices } from '~/Services/provider/ProviderGlobal';
 import ItemComment from './components/comment/ItemComment';
@@ -38,16 +38,19 @@ function VideoDetail() {
     const reducerComment = (state, action = {}) => {
         switch (action.type) {
             case 'DELETE_COMMENT':
-                console.log(action.id_comment);
-                const commentList = async () => {
-                    const res = await commentsServices.deleteComment({ id_comment: action.id_comment, token });
-                    dispatchComment({ type: 'SUCCESS', payload: res });
-                    res && setIsModelDelete(false);
-                };
-                commentList();
+                (async () => {
+                    try {
+                        const res = await commentsServices.deleteComment({ id_comment: action.id_comment, token });
+                        dispatchComment({ type: 'SUCCESS', payload: res });
+                        
+                        res && setIsModelDelete(false);
+                    } catch (error) {
+                        !token && Router()
+                    }
+                })();
                 break;
             case 'CREATE_COMMENT':
-                const comment = async () => {
+                (async () => {
                     const res = await commentsServices.createComment({
                         id_video: id,
                         token,
@@ -56,8 +59,8 @@ function VideoDetail() {
                     commentTextRef.current.querySelector('textarea[name="text_comment"]').focus();
                     commentTextRef.current.querySelector('textarea[name="text_comment"]').value = '';
                     dispatchComment({ type: 'SUCCESS', payload: res });
-                };
-                comment();
+                    console.log(res);
+                })();
                 break;
             case 'LIKE_AND_AU_LIKE':
                 const type = action.payload.is_liked ? 'unlike' : 'like';
@@ -130,10 +133,11 @@ function VideoDetail() {
                     <div
                         className={cx('background-video')}
                         style={{
-                            backgroundImage: 'url(' + (currentVideo ? currentVideo.thumb_url : '') + ')',
+                            backgroundImage: 'url(' + (currentVideo?.thumb_url) + ')',
                         }}
                     ></div>
-                    <Video className={cx('video-wrapper')} video_rul={currentVideo.file_url} autoPalyVideo={true} />
+                    {currentVideo.file_url ?<Video className={cx('video-wrapper')} video_url={ currentVideo?.file_url} autoPalyVideo={true} /> 
+                    : <h1>loading</h1>}
                 </div>
                 <div className={cx('content')}>
                     <HeaderContentVideo
